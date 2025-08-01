@@ -9,34 +9,34 @@ on:
 jobs:
   update-contributions:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
-        
+        node-version: '22'
+
     - name: Check if bundle exists
       run: |
         if [ ! -f "dist/fetch-contributions.js" ]; then
           echo "Bundle not found! Please push changes to trigger build."
           exit 1
         fi
-        
+
     - name: Make script executable
       run: chmod +x dist/fetch-contributions.js
-        
+
     - name: Fetch contributions
       run: node dist/fetch-contributions.js
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_USERNAME: ${{ github.repository_owner }}
-        
+
     - name: Commit and push if changed
       run: |
         git config --local user.email "action@github.com"
