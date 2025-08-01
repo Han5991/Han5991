@@ -7,8 +7,12 @@ on:
       - 'scripts/**'
       - 'package.json'
       - 'rollup.config.js'
+      - '.github/workflows/**'
   pull_request:
     branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
