@@ -1,0 +1,58 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/**'
+      - 'package.json'
+      - 'rollup.config.js'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build bundle
+      run: npm run build
+      
+    - name: Make script executable
+      run: chmod +x dist/fetch-contributions.js
+      
+    - name: Commit and push build artifacts
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add dist/
+        git diff --staged --quiet || git commit -m "🤖 Auto-build: Update bundled script"
+        git push
+        
+    - name: Run update contributions
+      run: node dist/fetch-contributions.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_USERNAME: ${{ github.repository_owner }}
+        
+    - name: Commit updated README
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git diff --staged --quiet || git commit -m "🤖 Auto-update: Open source contributions"
+        git push

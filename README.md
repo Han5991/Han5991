@@ -1,16 +1,23 @@
 ## Hi there 👋
 
-<!--
-**Han5991/Han5991** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<div align="center">
 
-Here are some ideas to get you started:
+### 🚀 Software Developer | Open Source Contributor
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Welcome to my GitHub profile! I'm passionate about contributing to open source projects and building meaningful software.
+
+</div>
+
+## 🚀 Open Source Contributions
+
+| Repository | Type | Title | Status | Date |
+|------------|------|-------|--------|------|
+| *Loading contributions...* | - | *Auto-updated daily at 9 AM KST* | 🔄 | - |
+
+---
+
+<div align="center">
+
+*This section is automatically updated daily with my latest open source contributions*
+
+</div>

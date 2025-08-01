@@ -1,0 +1,27 @@
+{
+  "name": "github-profile",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Automated GitHub profile with open source contributions",
+  "scripts": {
+    "build": "rollup -c",
+    "update-contributions": "node scripts/fetch-contributions.mjs"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "rollup": "^4.9.6"
+  },
+  "keywords": [
+    "github",
+    "profile",
+    "contributions",
+    "automation"
+  ],
+  "author": "Han5991",
+  "license": "MIT"
+}

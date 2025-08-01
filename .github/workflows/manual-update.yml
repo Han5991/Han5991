@@ -1,0 +1,65 @@
+name: Manual Update Contributions
+
+on:
+  workflow_dispatch: # 수동 실행 전용
+    inputs:
+      force_rebuild:
+        description: 'Force rebuild bundle before update'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  manual-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies and rebuild (if requested)
+      if: ${{ github.event.inputs.force_rebuild == 'true' }}
+      run: |
+        npm ci
+        npm run build
+        chmod +x dist/fetch-contributions.js
+        
+    - name: Check if bundle exists
+      run: |
+        if [ ! -f "dist/fetch-contributions.js" ]; then
+          echo "Bundle not found! Run with 'force_rebuild: true' or push changes to trigger build."
+          exit 1
+        fi
+        
+    - name: Make script executable
+      run: chmod +x dist/fetch-contributions.js
+        
+    - name: Fetch contributions
+      run: node dist/fetch-contributions.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_USERNAME: ${{ github.repository_owner }}
+        
+    - name: Commit build artifacts (if rebuilt)
+      if: ${{ github.event.inputs.force_rebuild == 'true' }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add dist/
+        git diff --staged --quiet || git commit -m "🤖 Manual rebuild: Update bundled script"
+        
+    - name: Commit updated README
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git diff --staged --quiet || git commit -m "🤖 Manual update: Open source contributions"
+        git push
