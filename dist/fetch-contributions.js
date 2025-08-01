@@ -3829,11 +3829,11 @@ async function updateReadme(newContributions) {
       .sort((a, b) => groupedContributions[b].length - groupedContributions[a].length);
     
     // 통계 계산
-    const totalContributions = contributions.length;
+    const totalContributions = allContributions.length;
     const totalRepos = sortedRepos.length;
-    const prCount = contributions.filter(c => c.type === 'Pull Request').length;
-    const issueCount = contributions.filter(c => c.type === 'Issue').length;
-    const mergedCount = contributions.filter(c => c.merged).length;
+    const prCount = allContributions.filter(c => c.type === 'Pull Request').length;
+    const issueCount = allContributions.filter(c => c.type === 'Issue').length;
+    const mergedCount = allContributions.filter(c => c.merged).length;
     
     // 기여 섹션 생성
     let contributionSection = `## 🚀 Open Source Contributions\n\n`;
