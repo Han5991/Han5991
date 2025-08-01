@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Get list of staged files
+STAGED_FILES=$(git diff --cached --name-only)
+
+# Check if source files or config files have been modified
+if echo "$STAGED_FILES" | grep -E "(scripts/.*\.mjs|rollup\.config\.js|package\.json|config/.*\.json)$" > /dev/null; then
+  echo "🔨 Source/config files modified, building bundle..."
+  npm run build
+  
+  # Add the built files to the commit
+  git add dist/
+  echo "✅ Bundle updated and added to commit"
+  
+  # Show what was built
+  echo "📁 Updated files:"
+  echo "$STAGED_FILES" | grep -E "(scripts/|config/|rollup|package)" | sed 's/^/  - /'
+else
+  echo "ℹ️  No source/config files modified, skipping build"
+fi

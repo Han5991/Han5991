@@ -1,0 +1,11 @@
+{
+  "organizations": [
+    "fourhe",
+    "YukiKoNeko",
+    "GaeChwiPpo"
+  ],
+  "repositories": [
+    "specific-user/specific-repo"
+  ],
+  "description": "Organizations and repositories to exclude from open source contributions display"
+}

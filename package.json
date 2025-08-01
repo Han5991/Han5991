@@ -4,16 +4,20 @@
   "type": "module",
   "description": "Automated GitHub profile with open source contributions",
   "scripts": {
-    "build": "rollup -c",
-    "update-contributions": "node scripts/fetch-contributions.mjs"
+    "build": "rollup -c && chmod +x dist/fetch-contributions.js",
+    "build:local": "./scripts/build.sh",
+    "update-contributions": "node scripts/fetch-contributions.mjs",
+    "test:bundle": "node dist/fetch-contributions.js",
+    "prepare": "husky"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "husky": "^9.1.7",
     "rollup": "^4.9.6"
   },
   "keywords": [

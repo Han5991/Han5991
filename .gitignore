@@ -8,3 +8,6 @@ yarn-error.log*
 
 # Keep built files
 !dist/
+
+# Keep Husky hooks
+!.husky/

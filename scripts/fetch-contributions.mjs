@@ -1,5 +1,6 @@
 import { Octokit } from '@octokit/rest';
 import fs from 'fs';
+import path from 'path';
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
@@ -7,10 +8,43 @@ const octokit = new Octokit({
 
 const username = process.env.GITHUB_USERNAME;
 
+// 블랙리스트 로드
+function loadBlacklist() {
+  try {
+    const blacklistPath = path.join(process.cwd(), 'config', 'blacklist.json');
+    const blacklistData = fs.readFileSync(blacklistPath, 'utf8');
+    const blacklist = JSON.parse(blacklistData);
+    
+    console.log(`Loaded blacklist: ${blacklist.organizations?.length || 0} orgs, ${blacklist.repositories?.length || 0} repos`);
+    return blacklist;
+  } catch (error) {
+    console.log('No blacklist found or error loading, using empty blacklist');
+    return { organizations: [], repositories: [] };
+  }
+}
+
+// 기여가 블랙리스트에 있는지 확인
+function isBlacklisted(repoFullName, blacklist) {
+  const [owner, repo] = repoFullName.split('/');
+  
+  // 조직 블랙리스트 확인
+  if (blacklist.organizations && blacklist.organizations.includes(owner)) {
+    return true;
+  }
+  
+  // 특정 레포지토리 블랙리스트 확인
+  if (blacklist.repositories && blacklist.repositories.includes(repoFullName)) {
+    return true;
+  }
+  
+  return false;
+}
+
 async function fetchContributions() {
   try {
     console.log(`Fetching contributions for ${username}...`);
     
+    const blacklist = loadBlacklist();
     const contributions = [];
     const seen = new Set();
     
@@ -26,7 +60,7 @@ async function fetchContributions() {
         const repo = event.repo.name;
         const isOwn = repo.startsWith(`${username}/`);
         
-        if (!isOwn && event.payload.action === 'opened') {
+        if (!isOwn && event.payload.action === 'opened' && !isBlacklisted(repo, blacklist)) {
           const key = `${repo}-${event.payload.number}`;
           
           if (!seen.has(key)) {
@@ -62,7 +96,7 @@ async function fetchContributions() {
         const repo = item.repository_url.replace('https://api.github.com/repos/', '');
         const isOwn = repo.startsWith(`${username}/`);
         
-        if (!isOwn && item.pull_request) {
+        if (!isOwn && item.pull_request && !isBlacklisted(repo, blacklist)) {
           const key = `${repo}-${item.number}`;
           
           if (!seen.has(key)) {
@@ -99,7 +133,7 @@ async function fetchContributions() {
         const repo = item.repository_url.replace('https://api.github.com/repos/', '');
         const isOwn = repo.startsWith(`${username}/`);
         
-        if (!isOwn && !item.pull_request) {
+        if (!isOwn && !item.pull_request && !isBlacklisted(repo, blacklist)) {
           const key = `${repo}-issue-${item.number}`;
           
           if (!seen.has(key)) {
@@ -144,7 +178,7 @@ async function fetchContributions() {
             for (const pr of prs.data) {
               const key = `${repo.parent.full_name}-${pr.number}`;
               
-              if (!seen.has(key)) {
+              if (!seen.has(key) && !isBlacklisted(repo.parent.full_name, blacklist)) {
                 seen.add(key);
                 
                 contributions.push({
@@ -183,35 +217,65 @@ async function updateReadme(contributions) {
   try {
     let readme = fs.readFileSync('README.md', 'utf8');
     
-    // 기여 테이블 생성
-    let contributionTable = `## 🚀 Open Source Contributions
-
-| Repository | Type | Title | Status | Date |
-|------------|------|-------|--------|------|
-`;
-    
+    // 레포지토리별로 그룹핑
+    const groupedContributions = {};
     for (const contrib of contributions) {
-      const repoLink = `[${contrib.repository}](https://github.com/${contrib.repository})`;
-      const titleLink = `[${contrib.title}](${contrib.url})`;
-      
-      // PR 상태 이모지
-      let statusEmoji = '🔄'; // open
-      if (contrib.merged) statusEmoji = '✅'; // merged
-      else if (contrib.state === 'closed') statusEmoji = '❌'; // closed
-      
-      contributionTable += `| ${repoLink} | ${contrib.type} | ${titleLink} | ${statusEmoji} | ${contrib.date} |\n`;
+      if (!groupedContributions[contrib.repository]) {
+        groupedContributions[contrib.repository] = [];
+      }
+      groupedContributions[contrib.repository].push(contrib);
     }
     
-    contributionTable += '\n';
+    // 레포지토리별 기여 수로 정렬
+    const sortedRepos = Object.keys(groupedContributions)
+      .sort((a, b) => groupedContributions[b].length - groupedContributions[a].length);
+    
+    // 통계 계산
+    const totalContributions = contributions.length;
+    const totalRepos = sortedRepos.length;
+    const prCount = contributions.filter(c => c.type === 'Pull Request').length;
+    const issueCount = contributions.filter(c => c.type === 'Issue').length;
+    const mergedCount = contributions.filter(c => c.merged).length;
+    
+    // 기여 섹션 생성
+    let contributionSection = `## 🚀 Open Source Contributions\n\n`;
+    contributionSection += `📊 **${totalContributions} contributions** across **${totalRepos} repositories**\n`;
+    contributionSection += `🔀 ${prCount} Pull Requests • 🐛 ${issueCount} Issues • ✅ ${mergedCount} Merged\n\n`;
+    
+    for (const repo of sortedRepos) {
+      const repoContribs = groupedContributions[repo];
+      const repoLink = `[${repo}](https://github.com/${repo})`;
+      
+      contributionSection += `### ${repoLink}\n`;
+      contributionSection += `**${repoContribs.length} contribution${repoContribs.length > 1 ? 's' : ''}**\n\n`;
+      
+      // 각 기여를 날짜순으로 정렬 (최신순)
+      repoContribs.sort((a, b) => new Date(b.date) - new Date(a.date));
+      
+      for (const contrib of repoContribs) {
+        const titleLink = `[${contrib.title}](${contrib.url})`;
+        
+        // PR 상태 이모지
+        let statusEmoji = '🔄'; // open
+        if (contrib.merged) statusEmoji = '✅'; // merged
+        else if (contrib.state === 'closed') statusEmoji = '❌'; // closed
+        
+        contributionSection += `- ${statusEmoji} **${contrib.type}**: ${titleLink} *(${contrib.date})*\n`;
+      }
+      
+      contributionSection += '\n';
+    }
+    
+    contributionSection += '---\n\n';
     
     // README에서 기여 섹션 찾아서 교체
-    const contributionSectionRegex = /## 🚀 Open Source Contributions[\s\S]*?(?=\n## |\n---|\n<|\n$)/;
+    const contributionSectionRegex = /## 🚀 Open Source Contributions[\s\S]*?(?=\n---\n\n<div align="center">|\n$)/;
     
     if (contributionSectionRegex.test(readme)) {
-      readme = readme.replace(contributionSectionRegex, contributionTable);
+      readme = readme.replace(contributionSectionRegex, contributionSection);
     } else {
       // 기여 섹션이 없으면 추가
-      readme = readme.replace('## Hi there 👋', `## Hi there 👋\n\n${contributionTable}`);
+      readme = readme.replace('## Hi there 👋', `## Hi there 👋\n\n${contributionSection}`);
     }
     
     fs.writeFileSync('README.md', readme);
