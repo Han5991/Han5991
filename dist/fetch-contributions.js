@@ -3495,24 +3495,21 @@ async function fetchContributions() {
   try {
     console.log(`Fetching contributions for ${username}...`);
     
-    // 최근 100개 이벤트 가져오기
+    const contributions = [];
+    const seen = new Set();
+    
+    // 1. 최근 이벤트에서 PR 가져오기 (최근 90일)
+    console.log('Fetching recent events...');
     const events = await octokit.rest.activity.listEventsForAuthenticatedUser({
       username,
       per_page: 100
     });
     
-    // PR만 필터링 (오픈소스 기여만)
-    const contributions = [];
-    const seen = new Set();
-    
     for (const event of events.data) {
-      // PR 이벤트만 처리
       if (event.type === 'PullRequestEvent') {
         const repo = event.repo.name;
         const isOwn = repo.startsWith(`${username}/`);
         
-        // 자신의 레포지토리가 아닌 경우만 (오픈소스 기여)
-        // 그리고 PR이 opened된 경우만
         if (!isOwn && event.payload.action === 'opened') {
           const key = `${repo}-${event.payload.number}`;
           
@@ -3520,26 +3517,145 @@ async function fetchContributions() {
             seen.add(key);
             
             const pr = event.payload.pull_request;
-            const contribution = {
+            contributions.push({
               repository: repo,
               type: 'Pull Request',
               title: pr.title,
               url: pr.html_url,
               date: new Date(event.created_at).toISOString().split('T')[0],
-              state: pr.state, // open, closed, merged
+              state: pr.state,
               merged: pr.merged
-            };
-            
-            contributions.push(contribution);
+            });
           }
         }
       }
     }
     
+    // 2. Search API로 더 많은 PR 검색 (전체 히스토리)
+    console.log('Searching for all PRs...');
+    try {
+      const searchQuery = `author:${username} type:pr`;
+      const searchResults = await octokit.rest.search.issuesAndPullRequests({
+        q: searchQuery,
+        sort: 'created',
+        order: 'desc',
+        per_page: 100
+      });
+      
+      for (const item of searchResults.data.items) {
+        const repo = item.repository_url.replace('https://api.github.com/repos/', '');
+        const isOwn = repo.startsWith(`${username}/`);
+        
+        if (!isOwn && item.pull_request) {
+          const key = `${repo}-${item.number}`;
+          
+          if (!seen.has(key)) {
+            seen.add(key);
+            
+            contributions.push({
+              repository: repo,
+              type: 'Pull Request',
+              title: item.title,
+              url: item.html_url,
+              date: new Date(item.created_at).toISOString().split('T')[0],
+              state: item.state,
+              merged: item.pull_request.merged_at ? true : false
+            });
+          }
+        }
+      }
+    } catch (searchError) {
+      console.log('Search API error (rate limited?):', searchError.message);
+    }
+    
+    // 2.1. Search API로 이슈도 검색 (버그 리포트, 기능 요청 등)
+    console.log('Searching for issues...');
+    try {
+      const issueQuery = `author:${username} type:issue`;
+      const issueResults = await octokit.rest.search.issuesAndPullRequests({
+        q: issueQuery,
+        sort: 'created',
+        order: 'desc',
+        per_page: 100
+      });
+      
+      for (const item of issueResults.data.items) {
+        const repo = item.repository_url.replace('https://api.github.com/repos/', '');
+        const isOwn = repo.startsWith(`${username}/`);
+        
+        if (!isOwn && !item.pull_request) {
+          const key = `${repo}-issue-${item.number}`;
+          
+          if (!seen.has(key)) {
+            seen.add(key);
+            
+            contributions.push({
+              repository: repo,
+              type: 'Issue',
+              title: item.title,
+              url: item.html_url,
+              date: new Date(item.created_at).toISOString().split('T')[0],
+              state: item.state,
+              merged: false
+            });
+          }
+        }
+      }
+    } catch (searchError) {
+      console.log('Issue search error (rate limited?):', searchError.message);
+    }
+    
+    // 3. 내 레포의 contributor 정보에서 외부 기여 찾기
+    console.log('Checking contributions to repositories...');
+    try {
+      const repos = await octokit.rest.repos.listForAuthenticatedUser({
+        per_page: 100,
+        sort: 'updated'
+      });
+      
+      // 포크된 레포들에서 원본 레포로의 기여 찾기
+      for (const repo of repos.data) {
+        if (repo.fork && repo.parent) {
+          try {
+            const prs = await octokit.rest.pulls.list({
+              owner: repo.parent.owner.login,
+              repo: repo.parent.name,
+              creator: username,
+              state: 'all',
+              per_page: 50
+            });
+            
+            for (const pr of prs.data) {
+              const key = `${repo.parent.full_name}-${pr.number}`;
+              
+              if (!seen.has(key)) {
+                seen.add(key);
+                
+                contributions.push({
+                  repository: repo.parent.full_name,
+                  type: 'Pull Request',
+                  title: pr.title,
+                  url: pr.html_url,
+                  date: new Date(pr.created_at).toISOString().split('T')[0],
+                  state: pr.state,
+                  merged: pr.merged_at ? true : false
+                });
+              }
+            }
+          } catch (prError) {
+            // 권한 없거나 레포가 없는 경우 무시
+          }
+        }
+      }
+    } catch (repoError) {
+      console.log('Repository search error:', repoError.message);
+    }
+    
     // 날짜순으로 정렬 (최신순)
     contributions.sort((a, b) => new Date(b.date) - new Date(a.date));
     
-    return contributions.slice(0, 10); // 최근 10개만
+    console.log(`Found ${contributions.length} total contributions`);
+    return contributions.slice(0, 50); // 최근 50개
     
   } catch (error) {
     console.error('Error fetching contributions:', error);

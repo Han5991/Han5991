@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 | Repository | Type | Title | Status | Date |
 |------------|------|-------|--------|------|
-| *Loading contributions...* | - | *Auto-updated daily at 9 AM KST* | 🔄 | - |
+
 
 ---
 
