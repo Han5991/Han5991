@@ -26,8 +26,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [Fix Escape key mapping and add tests in parse-hotkey.ts](https://github.com/mantinedev/mantine/pull/7928) *(2025-06-03)*
 - ✅ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7919) *(2025-05-31)*
 - ❌ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7916) *(2025-05-29)*
-- ✅ **Pull Request**: [[@mantine/dates] TimePicker min max fix](https://github.com/mantinedev/mantine/pull/7904) *(2025-05-27)*
 - ❌ **Pull Request**: [Add pre-commit hook for prettier:write script](https://github.com/mantinedev/mantine/pull/7896) *(2025-05-27)*
+- ✅ **Pull Request**: [[@mantine/dates] TimePicker min max fix](https://github.com/mantinedev/mantine/pull/7904) *(2025-05-27)*
 - ✅ **Pull Request**: [enhance HoverCard component with group delay logic](https://github.com/mantinedev/mantine/pull/7890) *(2025-05-25)*
 - ✅ **Pull Request**: [Fix: Date-related test failures due to UTC/local timezone mismatch Issue](https://github.com/mantinedev/mantine/pull/7878) *(2025-05-22)*
 - ❌ **Pull Request**: [hooks and documentation for `use-selection`](https://github.com/mantinedev/mantine/pull/7872) *(2025-05-22)*
@@ -49,11 +49,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **6 contributions**
 
 - 🔄 **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
-- 🔄 **Issue**: [Implement batch/parallel file processing for performance optimization](https://github.com/google-gemini/gemini-cli/issues/4712) *(2025-07-23)*
+- 🔴 **Issue**: [Implement batch/parallel file processing for performance optimization](https://github.com/google-gemini/gemini-cli/issues/4712) *(2025-07-23)*
 - 🔄 **Pull Request**: [fix: Ensure PR triage workflow runs only for specific repository](https://github.com/google-gemini/gemini-cli/pull/3294) *(2025-07-05)*
 - 🔄 **Pull Request**: [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) *(2025-07-05)*
-- ❌ **Issue**: [Optimize GitHub Actions PR Triage Scheduler Frequency](https://github.com/google-gemini/gemini-cli/issues/3292) *(2025-07-05)*
-- ❌ **Issue**: [Convert synchronous file binary detection to async to eliminate event loop blocking](https://github.com/google-gemini/gemini-cli/issues/3286) *(2025-07-05)*
+- 🔴 **Issue**: [Optimize GitHub Actions PR Triage Scheduler Frequency](https://github.com/google-gemini/gemini-cli/issues/3292) *(2025-07-05)*
+- 🔴 **Issue**: [Convert synchronous file binary detection to async to eliminate event loop blocking](https://github.com/google-gemini/gemini-cli/issues/3286) *(2025-07-05)*
 
 ### [vercel/next.js](https://github.com/vercel/next.js)
 **2 contributions**
