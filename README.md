@@ -17,7 +17,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **28 contributions**
 
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
-- ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
+- 🔄 **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
 - ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
 - ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
