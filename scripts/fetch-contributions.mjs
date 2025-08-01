@@ -142,6 +142,10 @@ async function fetchContributions() {
           if (!seen.has(key)) {
             seen.add(key);
             
+            // Search API에서 제공하는 정보로 merged 상태 판단
+            // merged_at이 null이 아니면 merged, 그렇지 않으면 closed but not merged
+            const isMerged = item.pull_request.merged_at !== null;
+            
             contributions.push({
               repository: repo,
               type: 'Pull Request',
@@ -149,7 +153,7 @@ async function fetchContributions() {
               url: item.html_url,
               date: new Date(item.created_at).toISOString().split('T')[0],
               state: item.state,
-              merged: item.pull_request.merged_at ? true : false
+              merged: isMerged
             });
           }
         }

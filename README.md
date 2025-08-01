@@ -11,13 +11,13 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **39 contributions** across **5 repositories**
-🔀 36 Pull Requests • 🐛 3 Issues • ✅ 23 Merged
+🔀 36 Pull Requests • 🐛 3 Issues • ✅ 25 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **28 contributions**
 
-- 🔄 **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
-- 🔄 **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
+- ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
+- ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
 - ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
 - ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
@@ -50,8 +50,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 - 🔄 **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
 - 🔴 **Issue**: [Implement batch/parallel file processing for performance optimization](https://github.com/google-gemini/gemini-cli/issues/4712) *(2025-07-23)*
-- 🔄 **Pull Request**: [fix: Ensure PR triage workflow runs only for specific repository](https://github.com/google-gemini/gemini-cli/pull/3294) *(2025-07-05)*
-- 🔄 **Pull Request**: [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) *(2025-07-05)*
+- ❌ **Pull Request**: [fix: Ensure PR triage workflow runs only for specific repository](https://github.com/google-gemini/gemini-cli/pull/3294) *(2025-07-05)*
+- ✅ **Pull Request**: [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) *(2025-07-05)*
 - 🔴 **Issue**: [Optimize GitHub Actions PR Triage Scheduler Frequency](https://github.com/google-gemini/gemini-cli/issues/3292) *(2025-07-05)*
 - 🔴 **Issue**: [Convert synchronous file binary detection to async to eliminate event loop blocking](https://github.com/google-gemini/gemini-cli/issues/3286) *(2025-07-05)*
 
