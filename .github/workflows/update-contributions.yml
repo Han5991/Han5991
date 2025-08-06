@@ -12,6 +12,7 @@ on:
       - '.github/workflows/**'
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: write
