@@ -48,7 +48,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 **6 contributions**
 
-- 🔄 **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
+- ✅ **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
 - 🔴 **Issue**: [Implement batch/parallel file processing for performance optimization](https://github.com/google-gemini/gemini-cli/issues/4712) *(2025-07-23)*
 - ❌ **Pull Request**: [fix: Ensure PR triage workflow runs only for specific repository](https://github.com/google-gemini/gemini-cli/pull/3294) *(2025-07-05)*
 - ✅ **Pull Request**: [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) *(2025-07-05)*
