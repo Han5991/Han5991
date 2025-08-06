@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **39 contributions** across **5 repositories**
-🔀 36 Pull Requests • 🐛 3 Issues • ✅ 26 Merged
+📊 **40 contributions** across **6 repositories**
+🔀 37 Pull Requests • 🐛 3 Issues • ✅ 27 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **28 contributions**
@@ -71,6 +71,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **1 contribution**
 
 - 🔄 **Pull Request**: [fix(react-query): allow retryOnMount when throwOnError is function (#9336)](https://github.com/TanStack/query/pull/9338) *(2025-06-30)*
+
+### [nodejs/node](https://github.com/nodejs/node)
+**1 contribution**
+
+- 🔄 **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
 
 ---
 
