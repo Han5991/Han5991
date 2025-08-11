@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **40 contributions** across **6 repositories**
-🔀 37 Pull Requests • 🐛 3 Issues • ✅ 27 Merged
+📊 **41 contributions** across **6 repositories**
+🔀 38 Pull Requests • 🐛 3 Issues • ✅ 27 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **28 contributions**
@@ -67,15 +67,16 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [fix: checkbox duplication handling in useFieldArray](https://github.com/react-hook-form/react-hook-form/pull/12793) *(2025-05-05)*
 - ✅ **Pull Request**: [🐞 fix #12772 reset form useWatch to utilize ref for defaultValue and …](https://github.com/react-hook-form/react-hook-form/pull/12780) *(2025-04-25)*
 
+### [nodejs/node](https://github.com/nodejs/node)
+**2 contributions**
+
+- 🔄 **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
+- 🔄 **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
+
 ### [TanStack/query](https://github.com/TanStack/query)
 **1 contribution**
 
 - 🔄 **Pull Request**: [fix(react-query): allow retryOnMount when throwOnError is function (#9336)](https://github.com/TanStack/query/pull/9338) *(2025-06-30)*
-
-### [nodejs/node](https://github.com/nodejs/node)
-**1 contribution**
-
-- 🔄 **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
 
 ---
 
