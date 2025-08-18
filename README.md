@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **43 contributions** across **6 repositories**
-🔀 39 Pull Requests • 🐛 4 Issues • ✅ 27 Merged
+📊 **44 contributions** across **6 repositories**
+🔀 39 Pull Requests • 🐛 5 Issues • ✅ 27 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **28 contributions**
@@ -46,8 +46,9 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [[@mantine.core] fix Slider changeEnd.tsx #7620](https://github.com/mantinedev/mantine/pull/7660) *(2025-04-07)*
 
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
-**8 contributions**
+**9 contributions**
 
+- 🔴 **Issue**: [Consolidate file exclusion patterns between glob tool and read-many-files tool](https://github.com/google-gemini/gemini-cli/issues/6414) *(2025-08-17)*
 - 🔄 **Pull Request**: [feat(core): share file list patterns between glob and grep tools](https://github.com/google-gemini/gemini-cli/pull/6359) *(2025-08-16)*
 - 🔴 **Issue**: [Consolidate file exclusion patterns between glob tool and read-many-files tool](https://github.com/google-gemini/gemini-cli/issues/6356) *(2025-08-16)*
 - ✅ **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
