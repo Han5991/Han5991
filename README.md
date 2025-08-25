@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **44 contributions** across **6 repositories**
-🔀 39 Pull Requests • 🐛 5 Issues • ✅ 27 Merged
+🔀 39 Pull Requests • 🐛 5 Issues • ✅ 28 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **28 contributions**
