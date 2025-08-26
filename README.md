@@ -33,7 +33,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ❌ **Pull Request**: [hooks and documentation for `use-selection`](https://github.com/mantinedev/mantine/pull/7872) *(2025-05-22)*
 - ✅ **Pull Request**: [Refactor AngleSlider keyboard interactions and add mark restrictions](https://github.com/mantinedev/mantine/pull/7862) *(2025-05-20)*
 - ✅ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7856) *(2025-05-18)*
-- ❌ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7855) *(2025-05-18)*
 - ✅ **Pull Request**: [[@mantine/core] Add `autoContrast` prop to Tooltip for automatic text…](https://github.com/mantinedev/mantine/pull/7819) *(2025-05-10)*
 - ✅ **Pull Request**: [[@mantine/core] Add `isDuplicate` prop to TagsInput for custom duplic…](https://github.com/mantinedev/mantine/pull/7815) *(2025-05-09)*
 - ✅ **Pull Request**: [[@mantine/form] Add `resetField` method to form utilities](https://github.com/mantinedev/mantine/pull/7806) *(2025-05-09)*
