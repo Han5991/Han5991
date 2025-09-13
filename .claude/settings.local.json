@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:claude.ai)"
+      "WebFetch(domain:claude.ai)",
+      "Bash(node:*)",
+      "Bash(gh search prs:*)",
+      "Bash(GITHUB_TOKEN=$GITHUB_TOKEN GITHUB_USERNAME=Han5991 node scripts/fetch-contributions.mjs)"
     ],
     "deny": []
   }

@@ -3490,7 +3490,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
 });
 
-const username = process.env.GITHUB_USERNAME;
+process.env.GITHUB_USERNAME;
 
 // 블랙리스트 로드
 function loadBlacklist() {
@@ -3560,181 +3560,56 @@ function isBlacklisted(repoFullName, blacklist) {
 
 async function fetchContributions() {
   try {
-    console.log(`Fetching contributions for ${username}...`);
-    
     const blacklist = loadBlacklist();
     const lastUpdate = loadLastUpdate();
     const contributions = [];
-    const seen = new Set();
     
-    console.log(`Fetching contributions since: ${lastUpdate.toISOString()}`);
+    console.log(`Fetching new contributions since: ${lastUpdate.toISOString()}`);
     
-    // 1. 최근 이벤트에서 PR 가져오기 (최근 90일)
-    console.log('Fetching recent events...');
-    const events = await octokit.rest.activity.listEventsForAuthenticatedUser({
-      username,
-      per_page: 100
-    });
-    
-    for (const event of events.data) {
-      if (event.type === 'PullRequestEvent') {
-        const repo = event.repo.name;
-        const isOwn = repo.startsWith(`${username}/`);
-        const eventDate = new Date(event.created_at);
-        
-        // 마지막 업데이트 이후의 이벤트만 처리
-        if (!isOwn && event.payload.action === 'opened' && !isBlacklisted(repo, blacklist) && eventDate > lastUpdate) {
-          const key = `${repo}-${event.payload.number}`;
-          
-          if (!seen.has(key)) {
-            seen.add(key);
-            
-            const pr = event.payload.pull_request;
-            contributions.push({
-              repository: repo,
-              type: 'Pull Request',
-              title: pr.title,
-              url: pr.html_url,
-              date: new Date(event.created_at).toISOString().split('T')[0],
-              state: pr.state,
-              merged: pr.merged
-            });
-          }
-        }
-      }
-    }
-    
-    // 2. Search API로 더 많은 PR 검색 (증분 업데이트)
-    console.log('Searching for recent PRs...');
+    // GitHub API를 사용하여 최근 PR만 가져오기 (증분 업데이트)
     try {
-      const sinceDate = lastUpdate.toISOString().split('T')[0]; // YYYY-MM-DD 형식
-      const searchQuery = `author:${username} type:pr created:>=${sinceDate}`;
+      const sinceDate = lastUpdate.toISOString().split('T')[0];
+      const searchQuery = `author:Han5991 type:pr created:>=${sinceDate}`;
+      
       const searchResults = await octokit.rest.search.issuesAndPullRequests({
         q: searchQuery,
         sort: 'created',
         order: 'desc',
-        per_page: 100
+        per_page: 50
       });
+      
+      console.log(`Found ${searchResults.data.items.length} recent PRs from GitHub API`);
       
       for (const item of searchResults.data.items) {
         const repo = item.repository_url.replace('https://api.github.com/repos/', '');
-        const isOwn = repo.startsWith(`${username}/`);
+        const isOwn = repo.startsWith('Han5991/');
+        const prDate = new Date(item.created_at);
         
-        if (!isOwn && item.pull_request && !isBlacklisted(repo, blacklist)) {
-          const key = `${repo}-${item.number}`;
+        // 본인 레포지토리 제외, 블랙리스트 확인, 마지막 업데이트 이후만
+        if (!isOwn && !isBlacklisted(repo, blacklist) && prDate > lastUpdate && item.pull_request) {
+          // Search API에서 제공하는 정보로 merged 상태 판단
+          const isMerged = item.pull_request.merged_at !== null;
           
-          if (!seen.has(key)) {
-            seen.add(key);
-            
-            // Search API에서 제공하는 정보로 merged 상태 판단
-            // merged_at이 null이 아니면 merged, 그렇지 않으면 closed but not merged
-            const isMerged = item.pull_request.merged_at !== null;
-            
-            contributions.push({
-              repository: repo,
-              type: 'Pull Request',
-              title: item.title,
-              url: item.html_url,
-              date: new Date(item.created_at).toISOString().split('T')[0],
-              state: item.state,
-              merged: isMerged
-            });
-          }
+          contributions.push({
+            repository: repo,
+            type: 'Pull Request',
+            title: item.title,
+            url: item.html_url,
+            date: new Date(item.created_at).toISOString().split('T')[0],
+            state: item.state,
+            merged: isMerged
+          });
         }
       }
-    } catch (searchError) {
-      console.log('Search API error (rate limited?):', searchError.message);
-    }
-    
-    // 2.1. Search API로 이슈도 검색 (증분 업데이트)
-    console.log('Searching for recent issues...');
-    try {
-      const sinceDate = lastUpdate.toISOString().split('T')[0]; // YYYY-MM-DD 형식
-      const issueQuery = `author:${username} type:issue created:>=${sinceDate}`;
-      const issueResults = await octokit.rest.search.issuesAndPullRequests({
-        q: issueQuery,
-        sort: 'created',
-        order: 'desc',
-        per_page: 100
-      });
-      
-      for (const item of issueResults.data.items) {
-        const repo = item.repository_url.replace('https://api.github.com/repos/', '');
-        const isOwn = repo.startsWith(`${username}/`);
-        
-        if (!isOwn && !item.pull_request && !isBlacklisted(repo, blacklist)) {
-          const key = `${repo}-issue-${item.number}`;
-          
-          if (!seen.has(key)) {
-            seen.add(key);
-            
-            contributions.push({
-              repository: repo,
-              type: 'Issue',
-              title: item.title,
-              url: item.html_url,
-              date: new Date(item.created_at).toISOString().split('T')[0],
-              state: item.state,
-              merged: false
-            });
-          }
-        }
-      }
-    } catch (searchError) {
-      console.log('Issue search error (rate limited?):', searchError.message);
-    }
-    
-    // 3. 내 레포의 contributor 정보에서 외부 기여 찾기
-    console.log('Checking contributions to repositories...');
-    try {
-      const repos = await octokit.rest.repos.listForAuthenticatedUser({
-        per_page: 100,
-        sort: 'updated'
-      });
-      
-      // 포크된 레포들에서 원본 레포로의 기여 찾기
-      for (const repo of repos.data) {
-        if (repo.fork && repo.parent) {
-          try {
-            const prs = await octokit.rest.pulls.list({
-              owner: repo.parent.owner.login,
-              repo: repo.parent.name,
-              creator: username,
-              state: 'all',
-              per_page: 50
-            });
-            
-            for (const pr of prs.data) {
-              const key = `${repo.parent.full_name}-${pr.number}`;
-              
-              if (!seen.has(key) && !isBlacklisted(repo.parent.full_name, blacklist)) {
-                seen.add(key);
-                
-                contributions.push({
-                  repository: repo.parent.full_name,
-                  type: 'Pull Request',
-                  title: pr.title,
-                  url: pr.html_url,
-                  date: new Date(pr.created_at).toISOString().split('T')[0],
-                  state: pr.state,
-                  merged: pr.merged_at ? true : false
-                });
-              }
-            }
-          } catch (prError) {
-            // 권한 없거나 레포가 없는 경우 무시
-          }
-        }
-      }
-    } catch (repoError) {
-      console.log('Repository search error:', repoError.message);
+    } catch (apiError) {
+      console.log('No new PRs found or GitHub API error:', apiError.message);
     }
     
     // 날짜순으로 정렬 (최신순)
     contributions.sort((a, b) => new Date(b.date) - new Date(a.date));
     
-    console.log(`Found ${contributions.length} total contributions`);
-    return contributions.slice(0, 50); // 최근 50개
+    console.log(`Found ${contributions.length} new external contributions`);
+    return contributions;
     
   } catch (error) {
     console.error('Error fetching contributions:', error);
@@ -3745,6 +3620,7 @@ async function fetchContributions() {
 // 기존 기여 데이터 파싱
 function parseExistingContributions(readme) {
   const contributions = [];
+  const blacklist = loadBlacklist();
   const contributionSectionRegex = /## 🚀 Open Source Contributions[\s\S]*?(?=\n---\n\n<div align="center">|\n$)/;
   const match = readme.match(contributionSectionRegex);
   
@@ -3757,31 +3633,32 @@ function parseExistingContributions(readme) {
       const repoName = repoSections[i];
       const repoContent = repoSections[i + 1];
       
-      // 각 기여 항목 파싱
-      const contribMatches = repoContent.match(/- (🔄|✅|❌|🟢|🔴) \*\*([^*]+)\*\*: \[([^\]]+)\]\(([^)]+)\) \*\(([^)]+)\)\*/g);
+      // 블랙리스트에 있는 레포지토리는 건너뛰기
+      if (isBlacklisted(repoName, blacklist)) {
+        console.log(`Skipping blacklisted repository: ${repoName}`);
+        continue;
+      }
+      
+      // PR만 파싱 (이슈는 제외)
+      const contribMatches = repoContent.match(/- (🔄|✅|❌) \*\*Pull Request\*\*: \[([^\]]+)\]\(([^)]+)\) \*\(([^)]+)\)\*/g);
       
       if (contribMatches) {
         for (const contribMatch of contribMatches) {
-          const parts = contribMatch.match(/- (🔄|✅|❌|🟢|🔴) \*\*([^*]+)\*\*: \[([^\]]+)\]\(([^)]+)\) \*\(([^)]+)\)\*/);
+          const parts = contribMatch.match(/- (🔄|✅|❌) \*\*Pull Request\*\*: \[([^\]]+)\]\(([^)]+)\) \*\(([^)]+)\)\*/);
           if (parts) {
-            const [, emoji, type, title, url, date] = parts;
+            const [, emoji, title, url, date] = parts;
             
             // 상태와 merged 정보 추론
             let state = 'open';
             let merged = false;
             
-            if (type === 'Pull Request') {
-              if (emoji === '✅') { state = 'closed'; merged = true; }
-              else if (emoji === '❌') { state = 'closed'; merged = false; }
-              else { state = 'open'; merged = false; }
-            } else if (type === 'Issue') {
-              if (emoji === '🟢') { state = 'closed'; }
-              else { state = 'open'; }
-            }
+            if (emoji === '✅') { state = 'closed'; merged = true; }
+            else if (emoji === '❌') { state = 'closed'; merged = false; }
+            else { state = 'open'; merged = false; }
             
             contributions.push({
               repository: repoName,
-              type,
+              type: 'Pull Request',
               title,
               url,
               date,
@@ -3794,8 +3671,59 @@ function parseExistingContributions(readme) {
     }
   }
   
-  console.log(`Parsed ${contributions.length} existing contributions from README`);
+  console.log(`Parsed ${contributions.length} existing contributions from README (after blacklist filter)`);
   return contributions;
+}
+
+// 오픈 PR들의 현재 상태 업데이트
+async function updateOpenPRStatus(existingContributions) {
+  const updatedContributions = [];
+  
+  for (const contrib of existingContributions) {
+    if (contrib.type === 'Pull Request' && contrib.state === 'open') {
+      try {
+        console.log(`Checking status of open PR: ${contrib.title}`);
+        
+        // URL에서 repository와 PR 번호 추출
+        const urlMatch = contrib.url.match(/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/);
+        if (urlMatch) {
+          const [, owner, repo, prNumber] = urlMatch;
+          
+          // 현재 PR 상태 확인
+          const pr = await octokit.rest.pulls.get({
+            owner,
+            repo,
+            pull_number: parseInt(prNumber)
+          });
+          
+          // 상태 업데이트
+          const updatedContrib = {
+            ...contrib,
+            state: pr.data.state,
+            merged: pr.data.merged || pr.data.merged_at !== null
+          };
+          
+          if (updatedContrib.state !== contrib.state || updatedContrib.merged !== contrib.merged) {
+            console.log(`Status updated for ${contrib.title}: ${contrib.state} -> ${updatedContrib.state}, merged: ${updatedContrib.merged}`);
+          }
+          
+          updatedContributions.push(updatedContrib);
+        } else {
+          // URL 파싱 실패시 기존 상태 유지
+          updatedContributions.push(contrib);
+        }
+      } catch (error) {
+        console.log(`Error checking PR status for ${contrib.title}:`, error.message);
+        // 에러 발생시 기존 상태 유지
+        updatedContributions.push(contrib);
+      }
+    } else {
+      // 머지된 PR이나 이슈는 그대로 유지
+      updatedContributions.push(contrib);
+    }
+  }
+  
+  return updatedContributions;
 }
 
 async function updateReadme(newContributions) {
@@ -3805,9 +3733,12 @@ async function updateReadme(newContributions) {
     // 기존 기여 데이터 파싱
     const existingContributions = parseExistingContributions(readme);
     
+    // 오픈 PR들의 상태 업데이트
+    const updatedExistingContributions = await updateOpenPRStatus(existingContributions);
+    
     // 기존 + 새로운 기여 병합 (중복 제거)
-    const allContributions = [...existingContributions];
-    const existingKeys = new Set(existingContributions.map(c => `${c.repository}-${c.url}`));
+    const allContributions = [...updatedExistingContributions];
+    const existingKeys = new Set(updatedExistingContributions.map(c => `${c.repository}-${c.url}`));
     
     for (const newContrib of newContributions) {
       const key = `${newContrib.repository}-${newContrib.url}`;
@@ -3819,9 +3750,22 @@ async function updateReadme(newContributions) {
     
     console.log(`Total contributions: ${allContributions.length} (${existingContributions.length} existing + ${newContributions.length} new)`);
     
+    // 중복 제거 (URL 기준)
+    const uniqueContributions = [];
+    const seenUrls = new Set();
+    
+    for (const contrib of allContributions) {
+      if (!seenUrls.has(contrib.url)) {
+        seenUrls.add(contrib.url);
+        uniqueContributions.push(contrib);
+      }
+    }
+    
+    console.log(`After deduplication: ${uniqueContributions.length} unique contributions`);
+    
     // 레포지토리별로 그룹핑
     const groupedContributions = {};
-    for (const contrib of allContributions) {
+    for (const contrib of uniqueContributions) {
       if (!groupedContributions[contrib.repository]) {
         groupedContributions[contrib.repository] = [];
       }
@@ -3832,17 +3776,16 @@ async function updateReadme(newContributions) {
     const sortedRepos = Object.keys(groupedContributions)
       .sort((a, b) => groupedContributions[b].length - groupedContributions[a].length);
     
-    // 통계 계산
-    const totalContributions = allContributions.length;
+    // 통계 계산 (PR만 카운트)
+    const totalContributions = uniqueContributions.length;
     const totalRepos = sortedRepos.length;
-    const prCount = allContributions.filter(c => c.type === 'Pull Request').length;
-    const issueCount = allContributions.filter(c => c.type === 'Issue').length;
-    const mergedCount = allContributions.filter(c => c.merged).length;
+    const prCount = uniqueContributions.filter(c => c.type === 'Pull Request').length;
+    const mergedCount = uniqueContributions.filter(c => c.merged).length;
     
     // 기여 섹션 생성
     let contributionSection = `## 🚀 Open Source Contributions\n\n`;
     contributionSection += `📊 **${totalContributions} contributions** across **${totalRepos} repositories**\n`;
-    contributionSection += `🔀 ${prCount} Pull Requests • 🐛 ${issueCount} Issues • ✅ ${mergedCount} Merged\n\n`;
+    contributionSection += `🔀 ${prCount} Pull Requests • ✅ ${mergedCount} Merged\n\n`;
     
     for (const repo of sortedRepos) {
       const repoContribs = groupedContributions[repo];
@@ -3857,7 +3800,7 @@ async function updateReadme(newContributions) {
       for (const contrib of repoContribs) {
         const titleLink = `[${contrib.title}](${contrib.url})`;
         
-        // 상태 이모지 (타입별로 다르게 처리)
+        // 상태 이모지 (PR만 처리)
         let statusEmoji = '🔄'; // open (기본값)
         
         if (contrib.type === 'Pull Request') {
@@ -3865,10 +3808,6 @@ async function updateReadme(newContributions) {
           if (contrib.merged) statusEmoji = '✅'; // merged
           else if (contrib.state === 'closed') statusEmoji = '❌'; // closed but not merged  
           else statusEmoji = '🔄'; // open
-        } else if (contrib.type === 'Issue') {
-          // 이슈의 경우: closed는 해결됨으로 간주
-          if (contrib.state === 'closed') statusEmoji = '🟢'; // closed (resolved)
-          else statusEmoji = '🔴'; // open (needs attention)
         }
         
         contributionSection += `- ${statusEmoji} **${contrib.type}**: ${titleLink} *(${contrib.date})*\n`;
