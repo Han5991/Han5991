@@ -10,23 +10,36 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **22 contributions** across **6 repositories**
-🔀 22 Pull Requests • ✅ 14 Merged
+📊 **35 contributions** across **6 repositories**
+🔀 35 Pull Requests • ✅ 25 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**11 contributions**
+**24 contributions**
 
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
+- ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
+- ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
+- ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
+- ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
+- ❌ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/7957) *(2025-06-10)*
+- ❌ **Pull Request**: [[@Mantine/core] refactor and fix MenuItem component behavior](https://github.com/mantinedev/mantine/pull/7948) *(2025-06-09)*
 - ✅ **Pull Request**: [Fix Escape key mapping and add tests in parse-hotkey.ts](https://github.com/mantinedev/mantine/pull/7928) *(2025-06-03)*
 - ✅ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7919) *(2025-05-31)*
 - ❌ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7916) *(2025-05-29)*
 - ❌ **Pull Request**: [Add pre-commit hook for prettier:write script](https://github.com/mantinedev/mantine/pull/7896) *(2025-05-27)*
+- ✅ **Pull Request**: [[@mantine/dates] TimePicker min max fix](https://github.com/mantinedev/mantine/pull/7904) *(2025-05-27)*
 - ✅ **Pull Request**: [enhance HoverCard component with group delay logic](https://github.com/mantinedev/mantine/pull/7890) *(2025-05-25)*
 - ✅ **Pull Request**: [Fix: Date-related test failures due to UTC/local timezone mismatch Issue](https://github.com/mantinedev/mantine/pull/7878) *(2025-05-22)*
 - ❌ **Pull Request**: [hooks and documentation for `use-selection`](https://github.com/mantinedev/mantine/pull/7872) *(2025-05-22)*
 - ✅ **Pull Request**: [Refactor AngleSlider keyboard interactions and add mark restrictions](https://github.com/mantinedev/mantine/pull/7862) *(2025-05-20)*
 - ✅ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7856) *(2025-05-18)*
 - ❌ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7855) *(2025-05-18)*
+- ✅ **Pull Request**: [[@mantine/core] Add `autoContrast` prop to Tooltip for automatic text…](https://github.com/mantinedev/mantine/pull/7819) *(2025-05-10)*
+- ✅ **Pull Request**: [[@mantine/core] Add `isDuplicate` prop to TagsInput for custom duplic…](https://github.com/mantinedev/mantine/pull/7815) *(2025-05-09)*
+- ✅ **Pull Request**: [[@mantine/form] Add `resetField` method to form utilities](https://github.com/mantinedev/mantine/pull/7806) *(2025-05-09)*
+- ✅ **Pull Request**: [[@mantine/core] fix useCollapse remove  collapsedStyles  display: 'none'](https://github.com/mantinedev/mantine/pull/7774) *(2025-05-02)*
+- ✅ **Pull Request**: [[@mantine.core] Transition clear all timers and RAF on rapid state ch…](https://github.com/mantinedev/mantine/pull/7773) *(2025-05-02)*
+- ✅ **Pull Request**: [[@mantine.core] fix NumberInput big number issue](https://github.com/mantinedev/mantine/pull/7766) *(2025-05-01)*
 
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 **4 contributions**
