@@ -10,11 +10,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **35 contributions** across **6 repositories**
-🔀 35 Pull Requests • ✅ 25 Merged
+📊 **32 contributions** across **6 repositories**
+🔀 32 Pull Requests • ✅ 22 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**24 contributions**
+**21 contributions**
 
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
@@ -37,9 +37,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [[@mantine/core] Add `autoContrast` prop to Tooltip for automatic text…](https://github.com/mantinedev/mantine/pull/7819) *(2025-05-10)*
 - ✅ **Pull Request**: [[@mantine/core] Add `isDuplicate` prop to TagsInput for custom duplic…](https://github.com/mantinedev/mantine/pull/7815) *(2025-05-09)*
 - ✅ **Pull Request**: [[@mantine/form] Add `resetField` method to form utilities](https://github.com/mantinedev/mantine/pull/7806) *(2025-05-09)*
-- ✅ **Pull Request**: [[@mantine/core] fix useCollapse remove  collapsedStyles  display: 'none'](https://github.com/mantinedev/mantine/pull/7774) *(2025-05-02)*
-- ✅ **Pull Request**: [[@mantine.core] Transition clear all timers and RAF on rapid state ch…](https://github.com/mantinedev/mantine/pull/7773) *(2025-05-02)*
-- ✅ **Pull Request**: [[@mantine.core] fix NumberInput big number issue](https://github.com/mantinedev/mantine/pull/7766) *(2025-05-01)*
 
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 **4 contributions**
