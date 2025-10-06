@@ -10,12 +10,13 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **32 contributions** across **6 repositories**
-🔀 32 Pull Requests • ✅ 22 Merged
+📊 **33 contributions** across **6 repositories**
+🔀 33 Pull Requests • ✅ 22 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**21 contributions**
+**22 contributions**
 
+- 🔄 **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
