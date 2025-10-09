@@ -34,7 +34,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ❌ **Pull Request**: [hooks and documentation for `use-selection`](https://github.com/mantinedev/mantine/pull/7872) *(2025-05-22)*
 - ✅ **Pull Request**: [Refactor AngleSlider keyboard interactions and add mark restrictions](https://github.com/mantinedev/mantine/pull/7862) *(2025-05-20)*
 - ✅ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7856) *(2025-05-18)*
-- ❌ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7855) *(2025-05-18)*
 
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 **4 contributions**
