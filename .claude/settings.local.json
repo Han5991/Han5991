@@ -5,7 +5,13 @@
       "WebFetch(domain:claude.ai)",
       "Bash(node:*)",
       "Bash(gh search prs:*)",
-      "Bash(GITHUB_TOKEN=$GITHUB_TOKEN GITHUB_USERNAME=Han5991 node scripts/fetch-contributions.mjs)"
+      "Bash(GITHUB_TOKEN=$GITHUB_TOKEN GITHUB_USERNAME=Han5991 node scripts/fetch-contributions.mjs)",
+      "Bash(if [ -f .cursorrules ])",
+      "Bash(then cat .cursorrules)",
+      "Bash(elif [ -f .cursor/rules ])",
+      "Bash(then cat .cursor/rules)",
+      "Bash(else echo \"No cursor rules found\")",
+      "Bash(fi)"
     ],
     "deny": []
   }
