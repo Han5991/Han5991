@@ -11,10 +11,10 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **32 contributions** across **6 repositories**
-🔀 32 Pull Requests • ✅ 21 Merged
+🔀 32 Pull Requests • ✅ 22 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**19 contributions**
+**18 contributions**
 
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
@@ -26,6 +26,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ❌ **Pull Request**: [[@Mantine/core] refactor and fix MenuItem component behavior](https://github.com/mantinedev/mantine/pull/7948) *(2025-06-09)*
 - ✅ **Pull Request**: [Fix Escape key mapping and add tests in parse-hotkey.ts](https://github.com/mantinedev/mantine/pull/7928) *(2025-06-03)*
 - ✅ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7919) *(2025-05-31)*
+- ❌ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7916) *(2025-05-29)*
 - ❌ **Pull Request**: [Add pre-commit hook for prettier:write script](https://github.com/mantinedev/mantine/pull/7896) *(2025-05-27)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker min max fix](https://github.com/mantinedev/mantine/pull/7904) *(2025-05-27)*
 - ✅ **Pull Request**: [enhance HoverCard component with group delay logic](https://github.com/mantinedev/mantine/pull/7890) *(2025-05-25)*
@@ -43,8 +44,9 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) *(2025-07-05)*
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**3 contributions**
+**4 contributions**
 
+- 🔄 **Pull Request**: [Fix repl cursor multiline overflow](https://github.com/nodejs/node/pull/60171) *(2025-10-09)*
 - 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
 - ✅ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
 - ✅ **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
