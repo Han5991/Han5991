@@ -11,12 +11,12 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **32 contributions** across **6 repositories**
-🔀 32 Pull Requests • ✅ 20 Merged
+🔀 32 Pull Requests • ✅ 21 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**20 contributions**
+**19 contributions**
 
-- 🔄 **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
+- ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
@@ -35,7 +35,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [Refactor AngleSlider keyboard interactions and add mark restrictions](https://github.com/mantinedev/mantine/pull/7862) *(2025-05-20)*
 - ✅ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7856) *(2025-05-18)*
 - ❌ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7855) *(2025-05-18)*
-- ✅ **Pull Request**: [[@mantine/core] Add `autoContrast` prop to Tooltip for automatic text…](https://github.com/mantinedev/mantine/pull/7819) *(2025-05-10)*
 
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 **4 contributions**
@@ -49,20 +48,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **3 contributions**
 
 - 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
-- 🔄 **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
+- ❌ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
 - ✅ **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
+
+### [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
+**3 contributions**
+
+- ✅ **Pull Request**: [🐞 fix: respect parent-provided useFieldArray rules (#13082)](https://github.com/react-hook-form/react-hook-form/pull/13083) *(2025-10-08)*
+- ✅ **Pull Request**: [fix: checkbox duplication handling in useFieldArray](https://github.com/react-hook-form/react-hook-form/pull/12793) *(2025-05-05)*
+- ✅ **Pull Request**: [🐞 fix #12772 reset form useWatch to utilize ref for defaultValue and …](https://github.com/react-hook-form/react-hook-form/pull/12780) *(2025-04-25)*
 
 ### [vercel/next.js](https://github.com/vercel/next.js)
 **2 contributions**
 
 - ✅ **Pull Request**: [Fix before interactive incorrectly render css](https://github.com/vercel/next.js/pull/81146) *(2025-07-01)*
 - ❌ **Pull Request**: [Fix remote pattern (#80294)](https://github.com/vercel/next.js/pull/80428) *(2025-06-12)*
-
-### [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
-**2 contributions**
-
-- ✅ **Pull Request**: [fix: checkbox duplication handling in useFieldArray](https://github.com/react-hook-form/react-hook-form/pull/12793) *(2025-05-05)*
-- ✅ **Pull Request**: [🐞 fix #12772 reset form useWatch to utilize ref for defaultValue and …](https://github.com/react-hook-form/react-hook-form/pull/12780) *(2025-04-25)*
 
 ### [TanStack/query](https://github.com/TanStack/query)
 **1 contribution**
