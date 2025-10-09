@@ -48,7 +48,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **3 contributions**
 
 - 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
-- ❌ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
+- ✅ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
 - ✅ **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
 
 ### [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
