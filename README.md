@@ -26,7 +26,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ❌ **Pull Request**: [[@Mantine/core] refactor and fix MenuItem component behavior](https://github.com/mantinedev/mantine/pull/7948) *(2025-06-09)*
 - ✅ **Pull Request**: [Fix Escape key mapping and add tests in parse-hotkey.ts](https://github.com/mantinedev/mantine/pull/7928) *(2025-06-03)*
 - ✅ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7919) *(2025-05-31)*
-- ❌ **Pull Request**: [Update link to "getting started" page in submit-template.mdx](https://github.com/mantinedev/mantine/pull/7916) *(2025-05-29)*
 - ❌ **Pull Request**: [Add pre-commit hook for prettier:write script](https://github.com/mantinedev/mantine/pull/7896) *(2025-05-27)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker min max fix](https://github.com/mantinedev/mantine/pull/7904) *(2025-05-27)*
 - ✅ **Pull Request**: [enhance HoverCard component with group delay logic](https://github.com/mantinedev/mantine/pull/7890) *(2025-05-25)*
