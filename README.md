@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **32 contributions** across **6 repositories**
-🔀 32 Pull Requests • ✅ 22 Merged
+📊 **33 contributions** across **6 repositories**
+🔀 33 Pull Requests • ✅ 22 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **18 contributions**
@@ -35,6 +35,15 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [Refactor AngleSlider keyboard interactions and add mark restrictions](https://github.com/mantinedev/mantine/pull/7862) *(2025-05-20)*
 - ✅ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7856) *(2025-05-18)*
 
+### [nodejs/node](https://github.com/nodejs/node)
+**5 contributions**
+
+- 🔄 **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
+- 🔄 **Pull Request**: [Fix repl cursor multiline overflow](https://github.com/nodejs/node/pull/60171) *(2025-10-09)*
+- 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
+- ✅ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
+- ✅ **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
+
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 **4 contributions**
 
@@ -42,14 +51,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
 - ❌ **Pull Request**: [fix: Ensure PR triage workflow runs only for specific repository](https://github.com/google-gemini/gemini-cli/pull/3294) *(2025-07-05)*
 - ✅ **Pull Request**: [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) *(2025-07-05)*
-
-### [nodejs/node](https://github.com/nodejs/node)
-**4 contributions**
-
-- 🔄 **Pull Request**: [Fix repl cursor multiline overflow](https://github.com/nodejs/node/pull/60171) *(2025-10-09)*
-- 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
-- ✅ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
-- ✅ **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
 
 ### [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
 **3 contributions**
