@@ -70,6 +70,16 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 - 🔄 **Pull Request**: [fix(react-query): allow retryOnMount when throwOnError is function (#9336)](https://github.com/TanStack/query/pull/9338) *(2025-06-30)*
 
+### [GaeChwiPpo/GaeChwiPpo-web](https://github.com/GaeChwiPpo/GaeChwiPpo-web)
+**1 contribution**
+
+- ✅ **Pull Request**: [Refactor and enhance project structure, configuration, and code quality](https://github.com/GaeChwiPpo/GaeChwiPpo-web/pull/1) *(2025-06-16)*
+
+### [YukiKoNeko/mantine](https://github.com/YukiKoNeko/mantine)
+**1 contribution**
+
+- ✅ **Pull Request**: [Apply prettier formatting to date utility files](https://github.com/YukiKoNeko/mantine/pull/1) *(2025-05-28)*
+
 ---
 
 
