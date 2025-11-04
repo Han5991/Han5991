@@ -39,7 +39,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **5 contributions**
 
 - 🔄 **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
-- 🔄 **Pull Request**: [Fix repl cursor multiline overflow](https://github.com/nodejs/node/pull/60171) *(2025-10-09)*
+- ❌ **Pull Request**: [Fix repl cursor multiline overflow](https://github.com/nodejs/node/pull/60171) *(2025-10-09)*
 - 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
 - ✅ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
 - ✅ **Pull Request**: [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) *(2025-08-06)*
