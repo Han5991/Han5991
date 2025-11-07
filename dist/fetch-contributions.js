@@ -3490,7 +3490,54 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN
 });
 
-process.env.GITHUB_USERNAME;
+const username = process.env.GITHUB_USERNAME || 'Han5991';
+const prStatusCache = new Map();
+const SEARCH_PER_PAGE = Number(process.env.CONTRIB_SEARCH_PER_PAGE || 50);
+const MAX_SEARCH_PAGES = Number(process.env.CONTRIB_MAX_PAGES || 5);
+
+function getRepoParts(repoFullName) {
+  const [owner, repo] = repoFullName.split('/');
+  return { owner, repo };
+}
+
+function getPrCacheKey(owner, repo, pullNumber) {
+  return `${owner}/${repo}#${pullNumber}`;
+}
+
+async function fetchPullRequestStatus(owner, repo, pullNumber, fallbackState = 'open') {
+  const cacheKey = getPrCacheKey(owner, repo, pullNumber);
+  if (prStatusCache.has(cacheKey)) {
+    return prStatusCache.get(cacheKey);
+  }
+
+  try {
+    const { data } = await octokit.rest.pulls.get({
+      owner,
+      repo,
+      pull_number: pullNumber
+    });
+
+    const status = {
+      state: data.state,
+      merged: data.merged || data.merged_at !== null,
+      mergedAt: data.merged_at,
+      updatedAt: data.updated_at
+    };
+
+    prStatusCache.set(cacheKey, status);
+    return status;
+  } catch (error) {
+    console.log(`Unable to fetch PR #${pullNumber} for ${owner}/${repo}: ${error.message}`);
+    const fallback = {
+      state: fallbackState,
+      merged: false,
+      mergedAt: null,
+      updatedAt: null
+    };
+    prStatusCache.set(cacheKey, fallback);
+    return fallback;
+  }
+}
 
 // 블랙리스트 로드
 function loadBlacklist() {
@@ -3523,6 +3570,21 @@ function loadLastUpdate() {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
     return thirtyDaysAgo;
   }
+}
+
+function getFetchStartDate() {
+  const overrideSince = process.env.CONTRIB_SINCE;
+  if (overrideSince) {
+    const overrideDate = new Date(overrideSince);
+    if (!isNaN(overrideDate)) {
+      console.log(`Using override start date from CONTRIB_SINCE: ${overrideDate.toISOString()}`);
+      return overrideDate;
+    }
+    
+    console.warn(`Invalid CONTRIB_SINCE value "${overrideSince}", falling back to last update`);
+  }
+  
+  return loadLastUpdate();
 }
 
 // 마지막 업데이트 시간 저장
@@ -3561,34 +3623,52 @@ function isBlacklisted(repoFullName, blacklist) {
 async function fetchContributions() {
   try {
     const blacklist = loadBlacklist();
-    const lastUpdate = loadLastUpdate();
+    const lastUpdate = getFetchStartDate();
     const contributions = [];
+    const sinceDate = lastUpdate.toISOString().split('T')[0];
+    const searchQuery = `author:${username} type:pr created:>=${sinceDate}`;
+    let page = 1;
+    let processed = 0;
     
     console.log(`Fetching new contributions since: ${lastUpdate.toISOString()}`);
     
-    // GitHub API를 사용하여 최근 PR만 가져오기 (증분 업데이트)
-    try {
-      const sinceDate = lastUpdate.toISOString().split('T')[0];
-      const searchQuery = `author:Han5991 type:pr created:>=${sinceDate}`;
-      
-      const searchResults = await octokit.rest.search.issuesAndPullRequests({
-        q: searchQuery,
-        sort: 'created',
-        order: 'desc',
-        per_page: 50
-      });
-      
-      console.log(`Found ${searchResults.data.items.length} recent PRs from GitHub API`);
-      
-      for (const item of searchResults.data.items) {
-        const repo = item.repository_url.replace('https://api.github.com/repos/', '');
-        const isOwn = repo.startsWith('Han5991/');
-        const prDate = new Date(item.created_at);
+    while (page <= MAX_SEARCH_PAGES) {
+      try {
+        const searchResults = await octokit.rest.search.issuesAndPullRequests({
+          q: searchQuery,
+          sort: 'created',
+          order: 'desc',
+          per_page: SEARCH_PER_PAGE,
+          page
+        });
         
-        // 본인 레포지토리 제외, 블랙리스트 확인, 마지막 업데이트 이후만
-        if (!isOwn && !isBlacklisted(repo, blacklist) && prDate > lastUpdate && item.pull_request) {
-          // Search API에서 제공하는 정보로 merged 상태 판단
-          const isMerged = item.pull_request.merged_at !== null;
+        const items = searchResults.data.items || [];
+        if (!items.length) {
+          break;
+        }
+        
+        console.log(`Page ${page}: processing ${items.length} PRs from GitHub API`);
+        
+        for (const item of items) {
+          const repo = item.repository_url.replace('https://api.github.com/repos/', '');
+          const isOwn = repo.startsWith(`${username}/`);
+          const prDate = new Date(item.created_at);
+          
+          if (isOwn || isBlacklisted(repo, blacklist) || prDate <= lastUpdate || !item.pull_request) {
+            continue;
+          }
+          
+          const prNumberMatch = item.html_url.match(/\/pull\/(\d+)/);
+          const prNumber = prNumberMatch ? parseInt(prNumberMatch[1], 10) : null;
+          let prState = item.state;
+          let prMerged = false;
+          
+          if (prNumber) {
+            const { owner, repo: repoName } = getRepoParts(repo);
+            const status = await fetchPullRequestStatus(owner, repoName, prNumber, item.state);
+            prState = status.state;
+            prMerged = status.merged;
+          }
           
           contributions.push({
             repository: repo,
@@ -3596,19 +3676,26 @@ async function fetchContributions() {
             title: item.title,
             url: item.html_url,
             date: new Date(item.created_at).toISOString().split('T')[0],
-            state: item.state,
-            merged: isMerged
+            state: prState,
+            merged: prMerged
           });
         }
+        
+        processed += items.length;
+        if (items.length < SEARCH_PER_PAGE) {
+          break;
+        }
+        
+        page += 1;
+      } catch (apiError) {
+        console.log('GitHub API error while fetching contributions:', apiError.message);
+        break;
       }
-    } catch (apiError) {
-      console.log('No new PRs found or GitHub API error:', apiError.message);
     }
     
-    // 날짜순으로 정렬 (최신순)
     contributions.sort((a, b) => new Date(b.date) - new Date(a.date));
     
-    console.log(`Found ${contributions.length} new external contributions`);
+    console.log(`Found ${contributions.length} new external contributions across ${Math.min(page, MAX_SEARCH_PAGES)} page(s)`);
     return contributions;
     
   } catch (error) {
@@ -3680,27 +3767,19 @@ async function updateOpenPRStatus(existingContributions) {
   const updatedContributions = [];
   
   for (const contrib of existingContributions) {
-    if (contrib.type === 'Pull Request' && contrib.state === 'open') {
+    if (contrib.type === 'Pull Request' && (contrib.state === 'open' || !contrib.merged)) {
       try {
-        console.log(`Checking status of open PR: ${contrib.title}`);
+        console.log(`Checking status of PR: ${contrib.title}`);
         
-        // URL에서 repository와 PR 번호 추출
         const urlMatch = contrib.url.match(/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/);
         if (urlMatch) {
           const [, owner, repo, prNumber] = urlMatch;
+          const status = await fetchPullRequestStatus(owner, repo, parseInt(prNumber), contrib.state);
           
-          // 현재 PR 상태 확인
-          const pr = await octokit.rest.pulls.get({
-            owner,
-            repo,
-            pull_number: parseInt(prNumber)
-          });
-          
-          // 상태 업데이트
           const updatedContrib = {
             ...contrib,
-            state: pr.data.state,
-            merged: pr.data.merged || pr.data.merged_at !== null
+            state: status.state,
+            merged: status.merged
           };
           
           if (updatedContrib.state !== contrib.state || updatedContrib.merged !== contrib.merged) {
@@ -3709,16 +3788,13 @@ async function updateOpenPRStatus(existingContributions) {
           
           updatedContributions.push(updatedContrib);
         } else {
-          // URL 파싱 실패시 기존 상태 유지
           updatedContributions.push(contrib);
         }
       } catch (error) {
         console.log(`Error checking PR status for ${contrib.title}:`, error.message);
-        // 에러 발생시 기존 상태 유지
         updatedContributions.push(contrib);
       }
     } else {
-      // 머지된 PR이나 이슈는 그대로 유지
       updatedContributions.push(contrib);
     }
   }
