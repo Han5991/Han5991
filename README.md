@@ -21,6 +21,9 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
 - ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
+<details>
+<summary>Show older contributions (24 more)</summary>
+
 - ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
 - ❌ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/7957) *(2025-06-10)*
 - ❌ **Pull Request**: [[@Mantine/core] refactor and fix MenuItem component behavior](https://github.com/mantinedev/mantine/pull/7948) *(2025-06-09)*
@@ -45,6 +48,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [[@mantine.hook] feat parse-hotkey add normalization for special keys](https://github.com/mantinedev/mantine/pull/7761) *(2025-04-29)*
 - ✅ **Pull Request**: [[@mantine.core] fix SegmentedControl rerender indicator when data len…](https://github.com/mantinedev/mantine/pull/7721) *(2025-04-21)*
 - ✅ **Pull Request**: [[@mantine.core] fix Slider changeEnd.tsx #7620](https://github.com/mantinedev/mantine/pull/7660) *(2025-04-07)*
+</details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
 **5 contributions**
