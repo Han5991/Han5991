@@ -10,6 +10,7 @@ const username = process.env.GITHUB_USERNAME || 'Han5991';
 const prStatusCache = new Map();
 const SEARCH_PER_PAGE = Number(process.env.CONTRIB_SEARCH_PER_PAGE || 50);
 const MAX_SEARCH_PAGES = Number(process.env.CONTRIB_MAX_PAGES || 5);
+const VISIBLE_CONTRIBUTIONS_PER_REPO = Number(process.env.CONTRIB_VISIBLE_LIMIT || 5);
 
 function getRepoParts(repoFullName) {
   const [owner, repo] = repoFullName.split('/');
@@ -388,21 +389,35 @@ async function updateReadme(newContributions) {
       
       // 각 기여를 날짜순으로 정렬 (최신순)
       repoContribs.sort((a, b) => new Date(b.date) - new Date(a.date));
-      
-      for (const contrib of repoContribs) {
+
+      const formatContributionLine = (contrib) => {
         const titleLink = `[${contrib.title}](${contrib.url})`;
-        
-        // 상태 이모지 (PR만 처리)
-        let statusEmoji = '🔄'; // open (기본값)
+        let statusEmoji = '🔄';
         
         if (contrib.type === 'Pull Request') {
-          // PR의 경우: merged > closed > open 순으로 우선순위
-          if (contrib.merged) statusEmoji = '✅'; // merged
-          else if (contrib.state === 'closed') statusEmoji = '❌'; // closed but not merged  
-          else statusEmoji = '🔄'; // open
+          if (contrib.merged) statusEmoji = '✅';
+          else if (contrib.state === 'closed') statusEmoji = '❌';
         }
         
-        contributionSection += `- ${statusEmoji} **${contrib.type}**: ${titleLink} *(${contrib.date})*\n`;
+        return `- ${statusEmoji} **${contrib.type}**: ${titleLink} *(${contrib.date})*`;
+      };
+
+      const visibleContributions = repoContribs.slice(0, VISIBLE_CONTRIBUTIONS_PER_REPO);
+      const hiddenContributions = repoContribs.slice(VISIBLE_CONTRIBUTIONS_PER_REPO);
+
+      for (const contrib of visibleContributions) {
+        contributionSection += `${formatContributionLine(contrib)}\n`;
+      }
+
+      if (hiddenContributions.length) {
+        contributionSection += '<details>\n';
+        contributionSection += `<summary>Show older contributions (${hiddenContributions.length} more)</summary>\n\n`;
+        
+        for (const contrib of hiddenContributions) {
+          contributionSection += `${formatContributionLine(contrib)}\n`;
+        }
+
+        contributionSection += '</details>\n';
       }
       
       contributionSection += '\n';
