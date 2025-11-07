@@ -10,11 +10,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **33 contributions** across **6 repositories**
-🔀 33 Pull Requests • ✅ 22 Merged
+📊 **44 contributions** across **6 repositories**
+🔀 44 Pull Requests • ✅ 32 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**18 contributions**
+**29 contributions**
 
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
@@ -34,6 +34,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ❌ **Pull Request**: [hooks and documentation for `use-selection`](https://github.com/mantinedev/mantine/pull/7872) *(2025-05-22)*
 - ✅ **Pull Request**: [Refactor AngleSlider keyboard interactions and add mark restrictions](https://github.com/mantinedev/mantine/pull/7862) *(2025-05-20)*
 - ✅ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7856) *(2025-05-18)*
+- ❌ **Pull Request**: [Add `domain` prop to Slider and RangeSlider for custom ranges](https://github.com/mantinedev/mantine/pull/7855) *(2025-05-18)*
+- ✅ **Pull Request**: [[@mantine/core] Add `autoContrast` prop to Tooltip for automatic text…](https://github.com/mantinedev/mantine/pull/7819) *(2025-05-10)*
+- ✅ **Pull Request**: [[@mantine/core] Add `isDuplicate` prop to TagsInput for custom duplic…](https://github.com/mantinedev/mantine/pull/7815) *(2025-05-09)*
+- ✅ **Pull Request**: [[@mantine/form] Add `resetField` method to form utilities](https://github.com/mantinedev/mantine/pull/7806) *(2025-05-09)*
+- ✅ **Pull Request**: [[@mantine/core] fix useCollapse remove  collapsedStyles  display: 'none'](https://github.com/mantinedev/mantine/pull/7774) *(2025-05-02)*
+- ✅ **Pull Request**: [[@mantine.core] Transition clear all timers and RAF on rapid state ch…](https://github.com/mantinedev/mantine/pull/7773) *(2025-05-02)*
+- ✅ **Pull Request**: [[@mantine.core] fix NumberInput big number issue](https://github.com/mantinedev/mantine/pull/7766) *(2025-05-01)*
+- ✅ **Pull Request**: [[@mantine.hook] feat handle writing-mode in useResizeObserver for accurate box size calculation](https://github.com/mantinedev/mantine/pull/7764) *(2025-04-30)*
+- ✅ **Pull Request**: [[@mantine.hook] feat parse-hotkey add normalization for special keys](https://github.com/mantinedev/mantine/pull/7761) *(2025-04-29)*
+- ✅ **Pull Request**: [[@mantine.core] fix SegmentedControl rerender indicator when data len…](https://github.com/mantinedev/mantine/pull/7721) *(2025-04-21)*
+- ✅ **Pull Request**: [[@mantine.core] fix Slider changeEnd.tsx #7620](https://github.com/mantinedev/mantine/pull/7660) *(2025-04-07)*
 
 ### [nodejs/node](https://github.com/nodejs/node)
 **5 contributions**
