@@ -10,20 +10,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **44 contributions** across **6 repositories**
-🔀 44 Pull Requests • ✅ 32 Merged
+📊 **45 contributions** across **6 repositories**
+🔀 45 Pull Requests • ✅ 32 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**29 contributions**
+**30 contributions**
 
+- 🔄 **Pull Request**: [[@mantine/core] PasswordInput: Add aria-pressed attribute to Password…](https://github.com/mantinedev/mantine/pull/8425) *(2025-11-08)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
-- ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
 <details>
-<summary>Show older contributions (24 more)</summary>
+<summary>Show older contributions (25 more)</summary>
 
+- ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
 - ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
 - ❌ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/7957) *(2025-06-10)*
 - ❌ **Pull Request**: [[@Mantine/core] refactor and fix MenuItem component behavior](https://github.com/mantinedev/mantine/pull/7948) *(2025-06-09)*
