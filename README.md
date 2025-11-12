@@ -10,20 +10,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **49 contributions** across **6 repositories**
-🔀 49 Pull Requests • ✅ 33 Merged
+📊 **50 contributions** across **6 repositories**
+🔀 50 Pull Requests • ✅ 33 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**30 contributions**
+**31 contributions**
 
+- 🔄 **Pull Request**: [[@mantine/core] Menu.Sub: add openDelay prop](https://github.com/mantinedev/mantine/pull/8437) *(2025-11-11)*
 - ✅ **Pull Request**: [[@mantine/core] PasswordInput: Add aria-pressed attribute to Password…](https://github.com/mantinedev/mantine/pull/8425) *(2025-11-08)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
-- ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
 <details>
-<summary>Show older contributions (25 more)</summary>
+<summary>Show older contributions (26 more)</summary>
 
+- ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
 - ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
 - ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
 - ❌ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/7957) *(2025-06-10)*
@@ -54,7 +55,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [nodejs/node](https://github.com/nodejs/node)
 **9 contributions**
 
-- 🔄 **Pull Request**: [ Render “About this documentation” on the docs landing page](https://github.com/nodejs/node/pull/60673) *(2025-11-10)*
+- ❌ **Pull Request**: [ Render “About this documentation” on the docs landing page](https://github.com/nodejs/node/pull/60673) *(2025-11-10)*
 - 🔄 **Pull Request**: [test: prefer major GC in cppgc-object](https://github.com/nodejs/node/pull/60672) *(2025-11-10)*
 - 🔄 **Pull Request**: [watch: re-expose watch flags via execArgv](https://github.com/nodejs/node/pull/60665) *(2025-11-10)*
 - 🔄 **Pull Request**: [test: fix flaky keepalive timeout test on slow platforms](https://github.com/nodejs/node/pull/60664) *(2025-11-10)*
