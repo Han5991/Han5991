@@ -10,20 +10,22 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **50 contributions** across **6 repositories**
-🔀 50 Pull Requests • ✅ 34 Merged
+📊 **52 contributions** across **6 repositories**
+🔀 52 Pull Requests • ✅ 35 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
-**31 contributions**
+**33 contributions**
 
+- 🔄 **Pull Request**: [[build] Speed up test pipeline with parallel pre-checks](https://github.com/mantinedev/mantine/pull/8454) *(2025-11-15)*
+- ✅ **Pull Request**: [Fix/issue 8452 radio group](https://github.com/mantinedev/mantine/pull/8453) *(2025-11-15)*
 - ✅ **Pull Request**: [[@mantine/core] Menu.Sub: add openDelay prop](https://github.com/mantinedev/mantine/pull/8437) *(2025-11-11)*
 - ✅ **Pull Request**: [[@mantine/core] PasswordInput: Add aria-pressed attribute to Password…](https://github.com/mantinedev/mantine/pull/8425) *(2025-11-08)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
+<details>
+<summary>Show older contributions (28 more)</summary>
+
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
 - ✅ **Pull Request**: [[bug] Refactor Storybook main config for ESM compatibility.](https://github.com/mantinedev/mantine/pull/8040) *(2025-07-03)*
-<details>
-<summary>Show older contributions (26 more)</summary>
-
 - ✅ **Pull Request**: [[@mantine/hooks] use-debounced-callback: Fix leading edge behavior to…](https://github.com/mantinedev/mantine/pull/8021) *(2025-06-27)*
 - ✅ **Pull Request**: [[@mantine/core] Add keepMounted prop to Collapse component](https://github.com/mantinedev/mantine/pull/8013) *(2025-06-26)*
 - ✅ **Pull Request**: [[@mantine/date] fix TimePicker disabled or readOnly not work #8008](https://github.com/mantinedev/mantine/pull/8011) *(2025-06-26)*
