@@ -11,12 +11,12 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **50 contributions** across **6 repositories**
-🔀 50 Pull Requests • ✅ 33 Merged
+🔀 50 Pull Requests • ✅ 34 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **31 contributions**
 
-- 🔄 **Pull Request**: [[@mantine/core] Menu.Sub: add openDelay prop](https://github.com/mantinedev/mantine/pull/8437) *(2025-11-11)*
+- ✅ **Pull Request**: [[@mantine/core] Menu.Sub: add openDelay prop](https://github.com/mantinedev/mantine/pull/8437) *(2025-11-11)*
 - ✅ **Pull Request**: [[@mantine/core] PasswordInput: Add aria-pressed attribute to Password…](https://github.com/mantinedev/mantine/pull/8425) *(2025-11-08)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
 - ✅ **Pull Request**: [Fix/reset field rerender (#8017)](https://github.com/mantinedev/mantine/pull/8050) *(2025-07-06)*
