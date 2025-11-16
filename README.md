@@ -16,8 +16,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
 
-- 🔄 **Pull Request**: [[build] Speed up test pipeline with parallel pre-checks](https://github.com/mantinedev/mantine/pull/8454) *(2025-11-15)*
 - ✅ **Pull Request**: [Fix/issue 8452 radio group](https://github.com/mantinedev/mantine/pull/8453) *(2025-11-15)*
+- ❌ **Pull Request**: [[build] Speed up test pipeline with parallel pre-checks](https://github.com/mantinedev/mantine/pull/8454) *(2025-11-15)*
 - ✅ **Pull Request**: [[@mantine/core] Menu.Sub: add openDelay prop](https://github.com/mantinedev/mantine/pull/8437) *(2025-11-11)*
 - ✅ **Pull Request**: [[@mantine/core] PasswordInput: Add aria-pressed attribute to Password…](https://github.com/mantinedev/mantine/pull/8425) *(2025-11-08)*
 - ✅ **Pull Request**: [[@mantine/dates] TimePicker: Fix custom amPmLabels being truncated in…](https://github.com/mantinedev/mantine/pull/8336) *(2025-10-05)*
