@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **52 contributions** across **6 repositories**
-🔀 52 Pull Requests • ✅ 35 Merged
+🔀 52 Pull Requests • ✅ 36 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -61,7 +61,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - 🔄 **Pull Request**: [test: prefer major GC in cppgc-object](https://github.com/nodejs/node/pull/60672) *(2025-11-10)*
 - 🔄 **Pull Request**: [watch: re-expose watch flags via execArgv](https://github.com/nodejs/node/pull/60665) *(2025-11-10)*
 - 🔄 **Pull Request**: [test: fix flaky keepalive timeout test on slow platforms](https://github.com/nodejs/node/pull/60664) *(2025-11-10)*
-- 🔄 **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
+- ✅ **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
 <details>
 <summary>Show older contributions (4 more)</summary>
 
