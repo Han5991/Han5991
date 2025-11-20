@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **52 contributions** across **6 repositories**
-🔀 52 Pull Requests • ✅ 36 Merged
+📊 **53 contributions** across **6 repositories**
+🔀 53 Pull Requests • ✅ 36 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -55,16 +55,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**9 contributions**
+**10 contributions**
 
+- 🔄 **Pull Request**: [util: honor breakLength Infinity when depth is Infinity](https://github.com/nodejs/node/pull/60783) *(2025-11-19)*
 - ❌ **Pull Request**: [ Render “About this documentation” on the docs landing page](https://github.com/nodejs/node/pull/60673) *(2025-11-10)*
 - 🔄 **Pull Request**: [test: prefer major GC in cppgc-object](https://github.com/nodejs/node/pull/60672) *(2025-11-10)*
 - 🔄 **Pull Request**: [watch: re-expose watch flags via execArgv](https://github.com/nodejs/node/pull/60665) *(2025-11-10)*
 - 🔄 **Pull Request**: [test: fix flaky keepalive timeout test on slow platforms](https://github.com/nodejs/node/pull/60664) *(2025-11-10)*
-- ✅ **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
 <details>
-<summary>Show older contributions (4 more)</summary>
+<summary>Show older contributions (5 more)</summary>
 
+- ✅ **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
 - ❌ **Pull Request**: [Fix repl cursor multiline overflow](https://github.com/nodejs/node/pull/60171) *(2025-10-09)*
 - 🔄 **Pull Request**: [Fix events remove listener emission](https://github.com/nodejs/node/pull/60137) *(2025-10-07)*
 - ✅ **Pull Request**: [test: add file attribute to JUnit reporter testcase elements](https://github.com/nodejs/node/pull/59432) *(2025-08-10)*
