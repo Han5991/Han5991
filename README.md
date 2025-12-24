@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **55 contributions** across **6 repositories**
-🔀 55 Pull Requests • ✅ 37 Merged
+🔀 55 Pull Requests • ✅ 38 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -57,7 +57,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [nodejs/node](https://github.com/nodejs/node)
 **12 contributions**
 
-- 🔄 **Pull Request**: [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) *(2025-12-13)*
+- ✅ **Pull Request**: [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) *(2025-12-13)*
 - 🔄 **Pull Request**: [Readline multiline completer](https://github.com/nodejs/node/pull/60981) *(2025-12-07)*
 - 🔄 **Pull Request**: [util: honor breakLength Infinity when depth is Infinity](https://github.com/nodejs/node/pull/60783) *(2025-11-19)*
 - ❌ **Pull Request**: [ Render “About this documentation” on the docs landing page](https://github.com/nodejs/node/pull/60673) *(2025-11-10)*
