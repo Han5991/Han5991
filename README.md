@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **55 contributions** across **6 repositories**
-🔀 55 Pull Requests • ✅ 38 Merged
+📊 **56 contributions** across **6 repositories**
+🔀 56 Pull Requests • ✅ 38 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -75,8 +75,9 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
-**4 contributions**
+**5 contributions**
 
+- 🔄 **Pull Request**: [fix: remove unsupported 'enabled' key from workflow config](https://github.com/google-gemini/gemini-cli/pull/15611) *(2025-12-27)*
 - ✅ **Pull Request**: [feat(core): share file list patterns between glob and grep tools](https://github.com/google-gemini/gemini-cli/pull/6359) *(2025-08-16)*
 - ✅ **Pull Request**: [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) *(2025-07-24)*
 - ❌ **Pull Request**: [fix: Ensure PR triage workflow runs only for specific repository](https://github.com/google-gemini/gemini-cli/pull/3294) *(2025-07-05)*
