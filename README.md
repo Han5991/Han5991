@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **56 contributions** across **6 repositories**
-🔀 56 Pull Requests • ✅ 38 Merged
+📊 **57 contributions** across **6 repositories**
+🔀 57 Pull Requests • ✅ 38 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -55,16 +55,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**12 contributions**
+**13 contributions**
 
+- 🔄 **Pull Request**: [stream: fix Writable.toWeb() hang on synchronous drain](https://github.com/nodejs/node/pull/61197) *(2025-12-29)*
 - ✅ **Pull Request**: [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) *(2025-12-13)*
 - 🔄 **Pull Request**: [Readline multiline completer](https://github.com/nodejs/node/pull/60981) *(2025-12-07)*
 - 🔄 **Pull Request**: [util: honor breakLength Infinity when depth is Infinity](https://github.com/nodejs/node/pull/60783) *(2025-11-19)*
 - ❌ **Pull Request**: [ Render “About this documentation” on the docs landing page](https://github.com/nodejs/node/pull/60673) *(2025-11-10)*
-- ✅ **Pull Request**: [test: prefer major GC in cppgc-object](https://github.com/nodejs/node/pull/60672) *(2025-11-10)*
 <details>
-<summary>Show older contributions (7 more)</summary>
+<summary>Show older contributions (8 more)</summary>
 
+- ✅ **Pull Request**: [test: prefer major GC in cppgc-object](https://github.com/nodejs/node/pull/60672) *(2025-11-10)*
 - 🔄 **Pull Request**: [watch: re-expose watch flags via execArgv](https://github.com/nodejs/node/pull/60665) *(2025-11-10)*
 - 🔄 **Pull Request**: [test: fix flaky keepalive timeout test on slow platforms](https://github.com/nodejs/node/pull/60664) *(2025-11-10)*
 - ✅ **Pull Request**: [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) *(2025-10-12)*
