@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **57 contributions** across **6 repositories**
-🔀 57 Pull Requests • ✅ 38 Merged
+🔀 57 Pull Requests • ✅ 39 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -100,7 +100,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [TanStack/query](https://github.com/TanStack/query)
 **1 contribution**
 
-- 🔄 **Pull Request**: [fix(react-query): allow retryOnMount when throwOnError is function (#9336)](https://github.com/TanStack/query/pull/9338) *(2025-06-30)*
+- ✅ **Pull Request**: [fix(react-query): allow retryOnMount when throwOnError is function (#9336)](https://github.com/TanStack/query/pull/9338) *(2025-06-30)*
 
 ---
 
