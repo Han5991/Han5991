@@ -57,7 +57,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [nodejs/node](https://github.com/nodejs/node)
 **15 contributions**
 
-- 🔄 **Pull Request**: [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) *(2026-01-14)*
+- ❌ **Pull Request**: [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) *(2026-01-14)*
 - ✅ **Pull Request**: [fs: fix ENOTDIR in globSync when file is treated as dir](https://github.com/nodejs/node/pull/61259) *(2026-01-03)*
 - 🔄 **Pull Request**: [stream: fix Writable.toWeb() hang on synchronous drain](https://github.com/nodejs/node/pull/61197) *(2025-12-29)*
 - ✅ **Pull Request**: [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) *(2025-12-13)*
