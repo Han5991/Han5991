@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **60 contributions** across **6 repositories**
-🔀 60 Pull Requests • ✅ 43 Merged
+📊 **61 contributions** across **6 repositories**
+🔀 61 Pull Requests • ✅ 43 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -55,16 +55,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**16 contributions**
+**17 contributions**
 
+- 🔄 **Pull Request**: [test_runner: support custom message for expectFailure](https://github.com/nodejs/node/pull/61563) *(2026-01-28)*
 - ❌ **Pull Request**: [tools: update sccache to v0.13.0](https://github.com/nodejs/node/pull/61493) *(2026-01-23)*
 - ✅ **Pull Request**: [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) *(2026-01-14)*
 - ✅ **Pull Request**: [fs: fix ENOTDIR in globSync when file is treated as dir](https://github.com/nodejs/node/pull/61259) *(2026-01-03)*
 - 🔄 **Pull Request**: [stream: fix Writable.toWeb() hang on synchronous drain](https://github.com/nodejs/node/pull/61197) *(2025-12-29)*
-- ✅ **Pull Request**: [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) *(2025-12-13)*
 <details>
-<summary>Show older contributions (11 more)</summary>
+<summary>Show older contributions (12 more)</summary>
 
+- ✅ **Pull Request**: [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) *(2025-12-13)*
 - 🔄 **Pull Request**: [Readline multiline completer](https://github.com/nodejs/node/pull/60981) *(2025-12-07)*
 - 🔄 **Pull Request**: [util: honor breakLength Infinity when depth is Infinity](https://github.com/nodejs/node/pull/60783) *(2025-11-19)*
 - ❌ **Pull Request**: [ Render “About this documentation” on the docs landing page](https://github.com/nodejs/node/pull/60673) *(2025-11-10)*
