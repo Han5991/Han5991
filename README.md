@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **61 contributions** across **6 repositories**
-🔀 61 Pull Requests • ✅ 43 Merged
+📊 **62 contributions** across **7 repositories**
+🔀 62 Pull Requests • ✅ 43 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -105,6 +105,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **1 contribution**
 
 - ✅ **Pull Request**: [fix(react-query): allow retryOnMount when throwOnError is function (#9336)](https://github.com/TanStack/query/pull/9338) *(2025-06-30)*
+
+### [nodejs/test-runner](https://github.com/nodejs/test-runner)
+**1 contribution**
+
+- 🔄 **Pull Request**: [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) *(2026-01-29)*
 
 ---
 
