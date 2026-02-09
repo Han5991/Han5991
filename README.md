@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **67 contributions** across **7 repositories**
-🔀 67 Pull Requests • ✅ 44 Merged
+🔀 67 Pull Requests • ✅ 45 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -61,7 +61,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - 🔄 **Pull Request**: [test_runner: pass setup context to global teardown](https://github.com/nodejs/node/pull/61726) *(2026-02-07)*
 - 🔄 **Pull Request**: [test: add describe abort signal tests](https://github.com/nodejs/node/pull/61711) *(2026-02-06)*
 - ✅ **Pull Request**: [http2: fix FileHandle leak in respondWithFile](https://github.com/nodejs/node/pull/61707) *(2026-02-06)*
-- 🔄 **Pull Request**: [repl: fix FileHandle leak in history initialization](https://github.com/nodejs/node/pull/61706) *(2026-02-06)*
+- ✅ **Pull Request**: [repl: fix FileHandle leak in history initialization](https://github.com/nodejs/node/pull/61706) *(2026-02-06)*
 <details>
 <summary>Show older contributions (17 more)</summary>
 
