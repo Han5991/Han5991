@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **67 contributions** across **7 repositories**
-🔀 67 Pull Requests • ✅ 45 Merged
+📊 **68 contributions** across **8 repositories**
+🔀 68 Pull Requests • ✅ 45 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -115,6 +115,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **1 contribution**
 
 - 🔄 **Pull Request**: [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) *(2026-01-29)*
+
+### [brave-people/Dev-Event](https://github.com/brave-people/Dev-Event)
+**1 contribution**
+
+- 🔄 **Pull Request**: [Add details for 10th Open Source Contribution Meetup](https://github.com/brave-people/Dev-Event/pull/699) *(2026-02-09)*
 
 ---
 
