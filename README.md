@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **67 contributions** across **7 repositories**
-🔀 67 Pull Requests • ✅ 46 Merged
+📊 **68 contributions** across **7 repositories**
+🔀 68 Pull Requests • ✅ 46 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -55,16 +55,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**22 contributions**
+**23 contributions**
 
+- 🔄 **Pull Request**: [test: fix flaky test-http2-close-while-writing](https://github.com/nodejs/node/pull/61804) *(2026-02-13)*
 - 🔄 **Pull Request**: [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) *(2026-02-08)*
 - 🔄 **Pull Request**: [test_runner: pass setup context to global teardown](https://github.com/nodejs/node/pull/61726) *(2026-02-07)*
 - 🔄 **Pull Request**: [test: add describe abort signal tests](https://github.com/nodejs/node/pull/61711) *(2026-02-06)*
 - ✅ **Pull Request**: [http2: fix FileHandle leak in respondWithFile](https://github.com/nodejs/node/pull/61707) *(2026-02-06)*
-- ✅ **Pull Request**: [repl: fix FileHandle leak in history initialization](https://github.com/nodejs/node/pull/61706) *(2026-02-06)*
 <details>
-<summary>Show older contributions (17 more)</summary>
+<summary>Show older contributions (18 more)</summary>
 
+- ✅ **Pull Request**: [repl: fix FileHandle leak in history initialization](https://github.com/nodejs/node/pull/61706) *(2026-02-06)*
 - 🔄 **Pull Request**: [test_runner: support custom message for expectFailure](https://github.com/nodejs/node/pull/61563) *(2026-01-28)*
 - ❌ **Pull Request**: [tools: update sccache to v0.13.0](https://github.com/nodejs/node/pull/61493) *(2026-01-23)*
 - ✅ **Pull Request**: [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) *(2026-01-14)*
