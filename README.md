@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **70 contributions** across **7 repositories**
-🔀 70 Pull Requests • ✅ 46 Merged
+🔀 70 Pull Requests • ✅ 47 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -68,7 +68,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - 🔄 **Pull Request**: [test: add describe abort signal tests](https://github.com/nodejs/node/pull/61711) *(2026-02-06)*
 - ✅ **Pull Request**: [http2: fix FileHandle leak in respondWithFile](https://github.com/nodejs/node/pull/61707) *(2026-02-06)*
 - ✅ **Pull Request**: [repl: fix FileHandle leak in history initialization](https://github.com/nodejs/node/pull/61706) *(2026-02-06)*
-- 🔄 **Pull Request**: [test_runner: support custom message for expectFailure](https://github.com/nodejs/node/pull/61563) *(2026-01-28)*
+- ✅ **Pull Request**: [test_runner: support custom message for expectFailure](https://github.com/nodejs/node/pull/61563) *(2026-01-28)*
 - ❌ **Pull Request**: [tools: update sccache to v0.13.0](https://github.com/nodejs/node/pull/61493) *(2026-01-23)*
 - ✅ **Pull Request**: [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) *(2026-01-14)*
 - ✅ **Pull Request**: [fs: fix ENOTDIR in globSync when file is treated as dir](https://github.com/nodejs/node/pull/61259) *(2026-01-03)*
