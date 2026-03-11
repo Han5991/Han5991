@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **71 contributions** across **7 repositories**
-🔀 71 Pull Requests • ✅ 47 Merged
+📊 **72 contributions** across **7 repositories**
+🔀 72 Pull Requests • ✅ 47 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -55,16 +55,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**26 contributions**
+**27 contributions**
 
+- 🔄 **Pull Request**: [util: allow color aliases in styleText](https://github.com/nodejs/node/pull/62180) *(2026-03-10)*
 - 🔄 **Pull Request**: [module: add requireStack to all error paths](https://github.com/nodejs/node/pull/62059) *(2026-03-01)*
 - 🔄 **Pull Request**: [test_runner: preserve user flags in argv](https://github.com/nodejs/node/pull/61858) *(2026-02-16)*
 - 🔄 **Pull Request**: [fs: fix process crash in fs.promises.writeFile](https://github.com/nodejs/node/pull/61849) *(2026-02-16)*
 - 🔄 **Pull Request**: [test: fix flaky test-http2-close-while-writing](https://github.com/nodejs/node/pull/61804) *(2026-02-13)*
-- 🔄 **Pull Request**: [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) *(2026-02-08)*
 <details>
-<summary>Show older contributions (21 more)</summary>
+<summary>Show older contributions (22 more)</summary>
 
+- 🔄 **Pull Request**: [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) *(2026-02-08)*
 - 🔄 **Pull Request**: [test_runner: pass setup context to global teardown](https://github.com/nodejs/node/pull/61726) *(2026-02-07)*
 - 🔄 **Pull Request**: [test: add describe abort signal tests](https://github.com/nodejs/node/pull/61711) *(2026-02-06)*
 - ✅ **Pull Request**: [http2: fix FileHandle leak in respondWithFile](https://github.com/nodejs/node/pull/61707) *(2026-02-06)*
