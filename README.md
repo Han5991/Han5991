@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **74 contributions** across **7 repositories**
-🔀 74 Pull Requests • ✅ 49 Merged
+🔀 74 Pull Requests • ✅ 50 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -57,7 +57,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [nodejs/node](https://github.com/nodejs/node)
 **29 contributions**
 
-- 🔄 **Pull Request**: [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) *(2026-03-21)*
+- ✅ **Pull Request**: [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) *(2026-03-21)*
 - 🔄 **Pull Request**: [stream: fix writev unhandled rejection in fromWeb](https://github.com/nodejs/node/pull/62297) *(2026-03-17)*
 - ✅ **Pull Request**: [util: allow color aliases in styleText](https://github.com/nodejs/node/pull/62180) *(2026-03-10)*
 - 🔄 **Pull Request**: [module: add requireStack to all error paths](https://github.com/nodejs/node/pull/62059) *(2026-03-01)*
