@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **74 contributions** across **7 repositories**
-🔀 74 Pull Requests • ✅ 51 Merged
+📊 **75 contributions** across **8 repositories**
+🔀 75 Pull Requests • ✅ 51 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -122,6 +122,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **1 contribution**
 
 - ✅ **Pull Request**: [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) *(2026-01-29)*
+
+### [typescript-eslint/typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+**1 contribution**
+
+- 🔄 **Pull Request**: [fix(eslint-plugin): [no-meaningless-void-operator] report on side-effect-free non-call expressions](https://github.com/typescript-eslint/typescript-eslint/pull/12218) *(2026-04-12)*
 
 ---
 
