@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **75 contributions** across **8 repositories**
-🔀 75 Pull Requests • ✅ 51 Merged
+📊 **77 contributions** across **9 repositories**
+🔀 77 Pull Requests • ✅ 51 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -66,7 +66,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 <summary>Show older contributions (24 more)</summary>
 
 - 🔄 **Pull Request**: [fs: fix process crash in fs.promises.writeFile](https://github.com/nodejs/node/pull/61849) *(2026-02-16)*
-- 🔄 **Pull Request**: [test: fix flaky test-http2-close-while-writing](https://github.com/nodejs/node/pull/61804) *(2026-02-13)*
+- ❌ **Pull Request**: [test: fix flaky test-http2-close-while-writing](https://github.com/nodejs/node/pull/61804) *(2026-02-13)*
 - ✅ **Pull Request**: [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) *(2026-02-08)*
 - 🔄 **Pull Request**: [test_runner: pass setup context to global teardown](https://github.com/nodejs/node/pull/61726) *(2026-02-07)*
 - 🔄 **Pull Request**: [test: add describe abort signal tests](https://github.com/nodejs/node/pull/61711) *(2026-02-06)*
@@ -112,6 +112,12 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 - ✅ **Pull Request**: [Fix before interactive incorrectly render css](https://github.com/vercel/next.js/pull/81146) *(2025-07-01)*
 - ❌ **Pull Request**: [Fix remote pattern (#80294)](https://github.com/vercel/next.js/pull/80428) *(2025-06-12)*
+
+### [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus)
+**2 contributions**
+
+- 🔄 **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
+- 🔄 **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
 
 ### [TanStack/query](https://github.com/TanStack/query)
 **1 contribution**
