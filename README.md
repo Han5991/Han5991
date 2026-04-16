@@ -117,7 +117,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 **2 contributions**
 
 - 🔄 **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
-- 🔄 **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
+- ❌ **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
 
 ### [TanStack/query](https://github.com/TanStack/query)
 **1 contribution**
