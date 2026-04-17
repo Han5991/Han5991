@@ -11,7 +11,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ## 🚀 Open Source Contributions
 
 📊 **77 contributions** across **9 repositories**
-🔀 77 Pull Requests • ✅ 51 Merged
+🔀 77 Pull Requests • ✅ 52 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -116,7 +116,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus)
 **2 contributions**
 
-- 🔄 **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
+- ✅ **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
 - ❌ **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
 
 ### [TanStack/query](https://github.com/TanStack/query)
