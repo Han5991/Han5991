@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **77 contributions** across **9 repositories**
-🔀 77 Pull Requests • ✅ 52 Merged
+📊 **78 contributions** across **9 repositories**
+🔀 78 Pull Requests • ✅ 52 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -107,17 +107,18 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 - ✅ **Pull Request**: [fix: checkbox duplication handling in useFieldArray](https://github.com/react-hook-form/react-hook-form/pull/12793) *(2025-05-05)*
 - ✅ **Pull Request**: [🐞 fix #12772 reset form useWatch to utilize ref for defaultValue and …](https://github.com/react-hook-form/react-hook-form/pull/12780) *(2025-04-25)*
 
+### [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus)
+**3 contributions**
+
+- 🔄 **Pull Request**: [feat(cli): enforce vite-plus import lint rule](https://github.com/voidzero-dev/vite-plus/pull/1408) *(2026-04-17)*
+- ✅ **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
+- ❌ **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
+
 ### [vercel/next.js](https://github.com/vercel/next.js)
 **2 contributions**
 
 - ✅ **Pull Request**: [Fix before interactive incorrectly render css](https://github.com/vercel/next.js/pull/81146) *(2025-07-01)*
 - ❌ **Pull Request**: [Fix remote pattern (#80294)](https://github.com/vercel/next.js/pull/80428) *(2025-06-12)*
-
-### [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus)
-**2 contributions**
-
-- ✅ **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
-- ❌ **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
 
 ### [TanStack/query](https://github.com/TanStack/query)
 **1 contribution**
