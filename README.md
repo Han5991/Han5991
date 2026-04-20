@@ -10,8 +10,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 ## 🚀 Open Source Contributions
 
-📊 **78 contributions** across **9 repositories**
-🔀 78 Pull Requests • ✅ 52 Merged
+📊 **79 contributions** across **9 repositories**
+🔀 79 Pull Requests • ✅ 52 Merged
 
 ### [mantinedev/mantine](https://github.com/mantinedev/mantine)
 **33 contributions**
@@ -55,16 +55,17 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-**29 contributions**
+**30 contributions**
 
+- 🔄 **Pull Request**: [test_runner: align MockTimers timeout API](https://github.com/nodejs/node/pull/62820) *(2026-04-19)*
 - ✅ **Pull Request**: [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) *(2026-03-21)*
 - ✅ **Pull Request**: [stream: fix writev unhandled rejection in fromWeb](https://github.com/nodejs/node/pull/62297) *(2026-03-17)*
 - ✅ **Pull Request**: [util: allow color aliases in styleText](https://github.com/nodejs/node/pull/62180) *(2026-03-10)*
 - 🔄 **Pull Request**: [module: add requireStack to all error paths](https://github.com/nodejs/node/pull/62059) *(2026-03-01)*
-- 🔄 **Pull Request**: [test_runner: preserve user flags in argv](https://github.com/nodejs/node/pull/61858) *(2026-02-16)*
 <details>
-<summary>Show older contributions (24 more)</summary>
+<summary>Show older contributions (25 more)</summary>
 
+- 🔄 **Pull Request**: [test_runner: preserve user flags in argv](https://github.com/nodejs/node/pull/61858) *(2026-02-16)*
 - 🔄 **Pull Request**: [fs: fix process crash in fs.promises.writeFile](https://github.com/nodejs/node/pull/61849) *(2026-02-16)*
 - ❌ **Pull Request**: [test: fix flaky test-http2-close-while-writing](https://github.com/nodejs/node/pull/61804) *(2026-02-13)*
 - ✅ **Pull Request**: [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) *(2026-02-08)*
