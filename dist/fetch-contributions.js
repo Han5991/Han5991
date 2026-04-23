@@ -3643,6 +3643,14 @@ function isBlacklisted(repoFullName, blacklist) {
   return false;
 }
 
+function escapeTableCell(value) {
+  return String(value).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+}
+
+function unescapeTableCell(value) {
+  return String(value).replace(/\\\|/g, '|');
+}
+
 async function fetchContributions() {
   try {
     const blacklist = loadBlacklist();
@@ -3739,6 +3747,25 @@ function parseExistingContributions(readme) {
   const blacklist = loadBlacklist();
   const contributionSectionRegex = /## 🚀 Open Source Contributions[\s\S]*?(?=\n---\n\n<div align="center">|\n$)/;
   const match = readme.match(contributionSectionRegex);
+  const pushContribution = ({ repoName, emoji, title, url, date }) => {
+    // 상태와 merged 정보 추론
+    let state = 'open';
+    let merged = false;
+
+    if (emoji === '✅') { state = 'closed'; merged = true; }
+    else if (emoji === '❌') { state = 'closed'; merged = false; }
+    else { state = 'open'; merged = false; }
+
+    contributions.push({
+      repository: repoName,
+      type: 'Pull Request',
+      title: unescapeTableCell(title),
+      url,
+      date,
+      state,
+      merged
+    });
+  };
   
   if (match) {
     const section = match[0];
@@ -3756,30 +3783,14 @@ function parseExistingContributions(readme) {
       }
       
       // PR만 파싱 (이슈는 제외)
-      const contribRegex = /^- (🔄|✅|❌) \*\*Pull Request\*\*: \[(.*)\]\((https:\/\/github\.com\/[^)]+\/pull\/\d+)\) \*\(([^)]+)\)\*$/;
+      const listContribRegex = /^- (🔄|✅|❌) \*\*Pull Request\*\*: \[(.*)\]\((https:\/\/github\.com\/[^)]+\/pull\/\d+)\) \*\(([^)]+)\)\*$/;
+      const tableContribRegex = /^\| (🔄|✅|❌) \[(.*)\]\((https:\/\/github\.com\/[^)]+\/pull\/\d+)\) \| `([^`]+)` \|$/;
       
       for (const line of repoContent.split('\n')) {
-        const parts = line.match(contribRegex);
+        const parts = line.match(listContribRegex) || line.match(tableContribRegex);
         if (parts) {
           const [, emoji, title, url, date] = parts;
-
-          // 상태와 merged 정보 추론
-          let state = 'open';
-          let merged = false;
-
-          if (emoji === '✅') { state = 'closed'; merged = true; }
-          else if (emoji === '❌') { state = 'closed'; merged = false; }
-          else { state = 'open'; merged = false; }
-
-          contributions.push({
-            repository: repoName,
-            type: 'Pull Request',
-            title,
-            url,
-            date,
-            state,
-            merged
-          });
+          pushContribution({ repoName, emoji, title, url, date });
         }
       }
     }
@@ -3889,25 +3900,32 @@ async function updateReadme(newContributions) {
     
     // 기여 섹션 생성
     let contributionSection = `## 🚀 Open Source Contributions\n\n`;
-    contributionSection += `📊 **${totalContributions} merged pull requests** across **${totalRepos} repositories**\n\n`;
+    contributionSection += '<div align="center">\n\n';
+    contributionSection += `<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-${totalContributions}-2ea44f?style=for-the-badge&logo=github">\n`;
+    contributionSection += `<img alt="Repositories" src="https://img.shields.io/badge/Repositories-${totalRepos}-0969da?style=for-the-badge&logo=github">\n\n`;
+    contributionSection += '</div>\n\n';
+    contributionSection += '> Merged pull requests to external open source projects. Dates show when each PR was opened.\n\n';
     
     for (const repo of sortedRepos) {
       const repoContribs = groupedContributions[repo];
       const repoLink = `[${repo}](https://github.com/${repo})`;
       
       contributionSection += `### ${repoLink}\n`;
-      contributionSection += `**${repoContribs.length} merged pull request${repoContribs.length > 1 ? 's' : ''}**\n\n`;
+      contributionSection += `<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-${repoContribs.length}-2ea44f?style=flat-square">\n\n`;
       
       // 각 기여를 날짜순으로 정렬 (최신순)
       repoContribs.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       const formatContributionLine = (contrib) => {
-        const titleLink = `[${contrib.title}](${contrib.url})`;
-        return `- ✅ **${contrib.type}**: ${titleLink} *(${contrib.date})*`;
+        const titleLink = `[${escapeTableCell(contrib.title)}](${contrib.url})`;
+        return `| ✅ ${titleLink} | \`${contrib.date}\` |`;
       };
 
       const visibleContributions = repoContribs.slice(0, VISIBLE_CONTRIBUTIONS_PER_REPO);
       const hiddenContributions = repoContribs.slice(VISIBLE_CONTRIBUTIONS_PER_REPO);
+
+      contributionSection += '| Pull Request | Opened |\n';
+      contributionSection += '| --- | --- |\n';
 
       for (const contrib of visibleContributions) {
         contributionSection += `${formatContributionLine(contrib)}\n`;
@@ -3915,7 +3933,9 @@ async function updateReadme(newContributions) {
 
       if (hiddenContributions.length) {
         contributionSection += '<details>\n';
-        contributionSection += `<summary>Show older contributions (${hiddenContributions.length} more)</summary>\n\n`;
+        contributionSection += `<summary>Show ${hiddenContributions.length} older merged PR${hiddenContributions.length > 1 ? 's' : ''}</summary>\n\n`;
+        contributionSection += '| Pull Request | Opened |\n';
+        contributionSection += '| --- | --- |\n';
         
         for (const contrib of hiddenContributions) {
           contributionSection += `${formatContributionLine(contrib)}\n`;
