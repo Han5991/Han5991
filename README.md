@@ -104,7 +104,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 ### [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus)
 **4 contributions**
 
-- 🔄 **Pull Request**: [fix(cli): prevent TTY hang during command delegation (#1396)](https://github.com/voidzero-dev/vite-plus/pull/1422) *(2026-04-20)*
+- ❌ **Pull Request**: [fix(cli): prevent TTY hang during command delegation (#1396)](https://github.com/voidzero-dev/vite-plus/pull/1422) *(2026-04-20)*
 - 🔄 **Pull Request**: [feat(cli): enforce vite-plus import lint rule](https://github.com/voidzero-dev/vite-plus/pull/1408) *(2026-04-17)*
 - ✅ **Pull Request**: [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) *(2026-04-14)*
 - ❌ **Pull Request**: [fix: add missing `path-posix` workspace dependency](https://github.com/voidzero-dev/vite-plus/pull/1382) *(2026-04-14)*
