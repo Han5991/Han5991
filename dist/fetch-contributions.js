@@ -3495,6 +3495,7 @@ const prStatusCache = new Map();
 const SEARCH_PER_PAGE = Number(process.env.CONTRIB_SEARCH_PER_PAGE || 50);
 const MAX_SEARCH_PAGES = Number(process.env.CONTRIB_MAX_PAGES || 5);
 const VISIBLE_CONTRIBUTIONS_PER_REPO = Number(process.env.CONTRIB_VISIBLE_LIMIT || 5);
+const DEFAULT_MERGED_LOOKBACK_DAYS = 7;
 
 function getRepoParts(repoFullName) {
   const [owner, repo] = repoFullName.split('/');
@@ -3546,7 +3547,7 @@ function loadBlacklist() {
     const blacklistPath = path.join(process.cwd(), 'config', 'blacklist.json');
     const blacklistData = fs.readFileSync(blacklistPath, 'utf8');
     const blacklist = JSON.parse(blacklistData);
-    
+
     console.log(`Loaded blacklist: ${blacklist.organizations?.length || 0} orgs, ${blacklist.repositories?.length || 0} repos`);
     return blacklist;
   } catch (error) {
@@ -3584,8 +3585,29 @@ function getFetchStartDate() {
     
     console.warn(`Invalid CONTRIB_SINCE value "${overrideSince}", falling back to last update`);
   }
+
+  const lastUpdate = loadLastUpdate();
+  const lookbackDays = getMergedLookbackDays();
+  const fetchStartDate = new Date(lastUpdate);
+  fetchStartDate.setDate(fetchStartDate.getDate() - lookbackDays);
+
+  console.log(`Using merged search lookback of ${lookbackDays} day(s): ${fetchStartDate.toISOString()}`);
+  return fetchStartDate;
+}
+
+function getMergedLookbackDays() {
+  const rawValue = process.env.CONTRIB_MERGED_LOOKBACK_DAYS;
+  if (!rawValue) {
+    return DEFAULT_MERGED_LOOKBACK_DAYS;
+  }
+
+  const parsedValue = Number(rawValue);
+  if (Number.isFinite(parsedValue) && parsedValue >= 0) {
+    return parsedValue;
+  }
   
-  return loadLastUpdate();
+  console.warn(`Invalid CONTRIB_MERGED_LOOKBACK_DAYS value "${rawValue}", using ${DEFAULT_MERGED_LOOKBACK_DAYS}`);
+  return DEFAULT_MERGED_LOOKBACK_DAYS;
 }
 
 // 마지막 업데이트 시간 저장
@@ -3597,7 +3619,7 @@ function saveLastUpdate() {
       description: "Last update timestamp for incremental contribution fetching"
     };
     
-    fs.writeFileSync(lastUpdatePath, JSON.stringify(lastUpdateData, null, 2));
+    fs.writeFileSync(lastUpdatePath, `${JSON.stringify(lastUpdateData, null, 2)}\n`);
     console.log(`Updated last update timestamp: ${lastUpdateData.lastUpdate}`);
   } catch (error) {
     console.error('Error saving last update timestamp:', error);
@@ -3627,17 +3649,17 @@ async function fetchContributions() {
     const lastUpdate = getFetchStartDate();
     const contributions = [];
     const sinceDate = lastUpdate.toISOString().split('T')[0];
-    const searchQuery = `author:${username} type:pr created:>=${sinceDate}`;
+    const searchQuery = `author:${username} is:pr is:merged merged:>=${sinceDate}`;
     let page = 1;
     let processed = 0;
     
-    console.log(`Fetching new contributions since: ${lastUpdate.toISOString()}`);
+    console.log(`Fetching merged contributions since: ${lastUpdate.toISOString()}`);
     
     while (page <= MAX_SEARCH_PAGES) {
       try {
         const searchResults = await octokit.rest.search.issuesAndPullRequests({
           q: searchQuery,
-          sort: 'created',
+          sort: 'updated',
           order: 'desc',
           per_page: SEARCH_PER_PAGE,
           page
@@ -3653,22 +3675,28 @@ async function fetchContributions() {
         for (const item of items) {
           const repo = item.repository_url.replace('https://api.github.com/repos/', '');
           const isOwn = repo.startsWith(`${username}/`);
-          const prDate = new Date(item.created_at);
-          
-          if (isOwn || isBlacklisted(repo, blacklist) || prDate <= lastUpdate || !item.pull_request) {
+
+          if (isOwn || isBlacklisted(repo, blacklist) || !item.pull_request) {
             continue;
           }
-          
+
           const prNumberMatch = item.html_url.match(/\/pull\/(\d+)/);
           const prNumber = prNumberMatch ? parseInt(prNumberMatch[1], 10) : null;
           let prState = item.state;
           let prMerged = false;
+
+          if (!prNumber) {
+            console.log(`Unable to parse PR number from ${item.html_url}`);
+            continue;
+          }
+
+          const { owner, repo: repoName } = getRepoParts(repo);
+          const status = await fetchPullRequestStatus(owner, repoName, prNumber, item.state);
+          prState = status.state;
+          prMerged = status.merged;
           
-          if (prNumber) {
-            const { owner, repo: repoName } = getRepoParts(repo);
-            const status = await fetchPullRequestStatus(owner, repoName, prNumber, item.state);
-            prState = status.state;
-            prMerged = status.merged;
+          if (!prMerged) {
+            continue;
           }
           
           contributions.push({
@@ -3693,9 +3721,9 @@ async function fetchContributions() {
         break;
       }
     }
-    
+
     contributions.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
     console.log(`Found ${contributions.length} new external contributions across ${Math.min(page, MAX_SEARCH_PAGES)} page(s)`);
     return contributions;
     
@@ -3720,7 +3748,7 @@ function parseExistingContributions(readme) {
     for (let i = 1; i < repoSections.length; i += 2) {
       const repoName = repoSections[i];
       const repoContent = repoSections[i + 1];
-      
+
       // 블랙리스트에 있는 레포지토리는 건너뛰기
       if (isBlacklisted(repoName, blacklist)) {
         console.log(`Skipping blacklisted repository: ${repoName}`);
@@ -3728,32 +3756,30 @@ function parseExistingContributions(readme) {
       }
       
       // PR만 파싱 (이슈는 제외)
-      const contribMatches = repoContent.match(/- (🔄|✅|❌) \*\*Pull Request\*\*: \[([^\]]+)\]\(([^)]+)\) \*\(([^)]+)\)\*/g);
+      const contribRegex = /^- (🔄|✅|❌) \*\*Pull Request\*\*: \[(.*)\]\((https:\/\/github\.com\/[^)]+\/pull\/\d+)\) \*\(([^)]+)\)\*$/;
       
-      if (contribMatches) {
-        for (const contribMatch of contribMatches) {
-          const parts = contribMatch.match(/- (🔄|✅|❌) \*\*Pull Request\*\*: \[([^\]]+)\]\(([^)]+)\) \*\(([^)]+)\)\*/);
-          if (parts) {
-            const [, emoji, title, url, date] = parts;
-            
-            // 상태와 merged 정보 추론
-            let state = 'open';
-            let merged = false;
-            
-            if (emoji === '✅') { state = 'closed'; merged = true; }
-            else if (emoji === '❌') { state = 'closed'; merged = false; }
-            else { state = 'open'; merged = false; }
-            
-            contributions.push({
-              repository: repoName,
-              type: 'Pull Request',
-              title,
-              url,
-              date,
-              state,
-              merged
-            });
-          }
+      for (const line of repoContent.split('\n')) {
+        const parts = line.match(contribRegex);
+        if (parts) {
+          const [, emoji, title, url, date] = parts;
+
+          // 상태와 merged 정보 추론
+          let state = 'open';
+          let merged = false;
+
+          if (emoji === '✅') { state = 'closed'; merged = true; }
+          else if (emoji === '❌') { state = 'closed'; merged = false; }
+          else { state = 'open'; merged = false; }
+
+          contributions.push({
+            repository: repoName,
+            type: 'Pull Request',
+            title,
+            url,
+            date,
+            state,
+            merged
+          });
         }
       }
     }
@@ -3806,18 +3832,22 @@ async function updateOpenPRStatus(existingContributions) {
 async function updateReadme(newContributions) {
   try {
     let readme = fs.readFileSync('README.md', 'utf8');
-    
+
     // 기존 기여 데이터 파싱
     const existingContributions = parseExistingContributions(readme);
-    
+
     // 오픈 PR들의 상태 업데이트
     const updatedExistingContributions = await updateOpenPRStatus(existingContributions);
-    
+    const mergedExistingContributions = updatedExistingContributions.filter(contrib => contrib.merged);
+    const mergedNewContributions = newContributions.filter(contrib => contrib.merged);
+
+    console.log(`Keeping ${mergedExistingContributions.length} merged existing contributions`);
+
     // 기존 + 새로운 기여 병합 (중복 제거)
-    const allContributions = [...updatedExistingContributions];
-    const existingKeys = new Set(updatedExistingContributions.map(c => `${c.repository}-${c.url}`));
+    const allContributions = [...mergedExistingContributions];
+    const existingKeys = new Set(mergedExistingContributions.map(c => `${c.repository}-${c.url}`));
     
-    for (const newContrib of newContributions) {
+    for (const newContrib of mergedNewContributions) {
       const key = `${newContrib.repository}-${newContrib.url}`;
       if (!existingKeys.has(key)) {
         allContributions.push(newContrib);
@@ -3825,7 +3855,7 @@ async function updateReadme(newContributions) {
       }
     }
     
-    console.log(`Total contributions: ${allContributions.length} (${existingContributions.length} existing + ${newContributions.length} new)`);
+    console.log(`Total merged contributions: ${allContributions.length} (${mergedExistingContributions.length} existing + ${mergedNewContributions.length} new)`);
     
     // 중복 제거 (URL 기준)
     const uniqueContributions = [];
@@ -3853,37 +3883,27 @@ async function updateReadme(newContributions) {
     const sortedRepos = Object.keys(groupedContributions)
       .sort((a, b) => groupedContributions[b].length - groupedContributions[a].length);
     
-    // 통계 계산 (PR만 카운트)
+    // 통계 계산 (merged PR만 카운트)
     const totalContributions = uniqueContributions.length;
     const totalRepos = sortedRepos.length;
-    const prCount = uniqueContributions.filter(c => c.type === 'Pull Request').length;
-    const mergedCount = uniqueContributions.filter(c => c.merged).length;
     
     // 기여 섹션 생성
     let contributionSection = `## 🚀 Open Source Contributions\n\n`;
-    contributionSection += `📊 **${totalContributions} contributions** across **${totalRepos} repositories**\n`;
-    contributionSection += `🔀 ${prCount} Pull Requests • ✅ ${mergedCount} Merged\n\n`;
+    contributionSection += `📊 **${totalContributions} merged pull requests** across **${totalRepos} repositories**\n\n`;
     
     for (const repo of sortedRepos) {
       const repoContribs = groupedContributions[repo];
       const repoLink = `[${repo}](https://github.com/${repo})`;
       
       contributionSection += `### ${repoLink}\n`;
-      contributionSection += `**${repoContribs.length} contribution${repoContribs.length > 1 ? 's' : ''}**\n\n`;
+      contributionSection += `**${repoContribs.length} merged pull request${repoContribs.length > 1 ? 's' : ''}**\n\n`;
       
       // 각 기여를 날짜순으로 정렬 (최신순)
       repoContribs.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       const formatContributionLine = (contrib) => {
         const titleLink = `[${contrib.title}](${contrib.url})`;
-        let statusEmoji = '🔄';
-        
-        if (contrib.type === 'Pull Request') {
-          if (contrib.merged) statusEmoji = '✅';
-          else if (contrib.state === 'closed') statusEmoji = '❌';
-        }
-        
-        return `- ${statusEmoji} **${contrib.type}**: ${titleLink} *(${contrib.date})*`;
+        return `- ✅ **${contrib.type}**: ${titleLink} *(${contrib.date})*`;
       };
 
       const visibleContributions = repoContribs.slice(0, VISIBLE_CONTRIBUTIONS_PER_REPO);
@@ -3920,7 +3940,7 @@ async function updateReadme(newContributions) {
     }
     
     fs.writeFileSync('README.md', readme);
-    console.log(`Updated README with ${allContributions.length} total contributions`);
+    console.log(`Updated README with ${uniqueContributions.length} merged contributions`);
     
   } catch (error) {
     console.error('Error updating README:', error);
