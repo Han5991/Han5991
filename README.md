@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-52-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-53-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-8-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -58,20 +58,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-15-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-16-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [test_runner: align MockTimers timeout API](https://github.com/nodejs/node/pull/62820) | `2026-04-19` |
 | ✅ [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) | `2026-03-21` |
 | ✅ [stream: fix writev unhandled rejection in fromWeb](https://github.com/nodejs/node/pull/62297) | `2026-03-17` |
 | ✅ [util: allow color aliases in styleText](https://github.com/nodejs/node/pull/62180) | `2026-03-10` |
 | ✅ [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) | `2026-02-08` |
-| ✅ [http2: fix FileHandle leak in respondWithFile](https://github.com/nodejs/node/pull/61707) | `2026-02-06` |
 <details>
-<summary>Show 10 older merged PRs</summary>
+<summary>Show 11 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [http2: fix FileHandle leak in respondWithFile](https://github.com/nodejs/node/pull/61707) | `2026-02-06` |
 | ✅ [repl: fix FileHandle leak in history initialization](https://github.com/nodejs/node/pull/61706) | `2026-02-06` |
 | ✅ [test_runner: support custom message for expectFailure](https://github.com/nodejs/node/pull/61563) | `2026-01-28` |
 | ✅ [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) | `2026-01-14` |
