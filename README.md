@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-53-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-54-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-8-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -105,10 +105,11 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [🐞 fix #12772 reset form useWatch to utilize ref for defaultValue and …](https://github.com/react-hook-form/react-hook-form/pull/12780) | `2025-04-25` |
 
 ### [voidzero-dev/vite-plus](https://github.com/voidzero-dev/vite-plus)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-1-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-2-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [feat(cli): add oxlint rule to prefer vite-plus imports](https://github.com/voidzero-dev/vite-plus/pull/1408) | `2026-04-17` |
 | ✅ [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) | `2026-04-14` |
 
 ### [vercel/next.js](https://github.com/vercel/next.js)
