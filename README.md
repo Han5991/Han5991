@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-54-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-55-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-8-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -58,7 +58,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-16-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-17-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
@@ -68,7 +68,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [util: allow color aliases in styleText](https://github.com/nodejs/node/pull/62180) | `2026-03-10` |
 | ✅ [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) | `2026-02-08` |
 <details>
-<summary>Show 11 older merged PRs</summary>
+<summary>Show 12 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
@@ -77,6 +77,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [test_runner: support custom message for expectFailure](https://github.com/nodejs/node/pull/61563) | `2026-01-28` |
 | ✅ [lib: fix TypeScript support check in jitless mode](https://github.com/nodejs/node/pull/61382) | `2026-01-14` |
 | ✅ [fs: fix ENOTDIR in globSync when file is treated as dir](https://github.com/nodejs/node/pull/61259) | `2026-01-03` |
+| ✅ [stream: fix Writable.toWeb() hang on synchronous drain](https://github.com/nodejs/node/pull/61197) | `2025-12-29` |
 | ✅ [Fix/fs rmsync broken symlink 61020](https://github.com/nodejs/node/pull/61040) | `2025-12-13` |
 | ✅ [test: prefer major GC in cppgc-object](https://github.com/nodejs/node/pull/60672) | `2025-11-10` |
 | ✅ [test: add missing r.close() calls in REPL multiline tests](https://github.com/nodejs/node/pull/60226) | `2025-10-12` |
