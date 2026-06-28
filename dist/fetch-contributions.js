@@ -3897,7 +3897,22 @@ async function updateReadme(newContributions) {
     // 통계 계산 (merged PR만 카운트)
     const totalContributions = uniqueContributions.length;
     const totalRepos = sortedRepos.length;
-    
+
+    // 외부 소비용(예: blog about 통계) 머신 리더블 요약.
+    // README 배지를 정규식으로 긁지 않고 .mergedPRs 만 읽으면 되도록 한다.
+    try {
+      const summaryPath = path.join(process.cwd(), 'config', 'summary.json');
+      const summary = {
+        mergedPRs: totalContributions,
+        repositories: totalRepos,
+        updatedAt: new Date().toISOString(),
+      };
+      fs.writeFileSync(summaryPath, `${JSON.stringify(summary, null, 2)}\n`);
+      console.log(`Wrote summary.json: ${totalContributions} merged PRs across ${totalRepos} repos`);
+    } catch (error) {
+      console.error('Error writing summary.json:', error);
+    }
+
     // 기여 섹션 생성
     let contributionSection = `## 🚀 Open Source Contributions\n\n`;
     contributionSection += '<div align="center">\n\n';
