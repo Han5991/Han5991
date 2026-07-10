@@ -12,8 +12,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-58-2ea44f?style=for-the-badge&logo=github">
-<img alt="Repositories" src="https://img.shields.io/badge/Repositories-8-0969da?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-59-2ea44f?style=for-the-badge&logo=github">
+<img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
 
@@ -136,6 +136,13 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) | `2026-01-29` |
+
+### [facebook/astryx](https://github.com/facebook/astryx)
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-1-2ea44f?style=flat-square">
+
+| Pull Request | Opened |
+| --- | --- |
+| ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
 
 ---
 
