@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-62-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-64-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -89,6 +89,24 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [util: fix numericSeparator with negative fractional numbers](https://github.com/nodejs/node/pull/59379) | `2025-08-06` |
 </details>
 
+### [facebook/astryx](https://github.com/facebook/astryx)
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-6-2ea44f?style=flat-square">
+
+| Pull Request | Opened |
+| --- | --- |
+| ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
+| ✅ [perf(test): split vitest into ui (jsdom) and node projects](https://github.com/facebook/astryx/pull/3814) | `2026-07-11` |
+| ✅ [chore: migrate the ESLint config to defineConfig](https://github.com/facebook/astryx/pull/3818) | `2026-07-11` |
+| ✅ [ci: read the Node version from .nvmrc and share one setup action](https://github.com/facebook/astryx/pull/3753) | `2026-07-10` |
+| ✅ [chore: drop the dead .npmrc and fix the stale pnpm version in CONTRIBUTING](https://github.com/facebook/astryx/pull/3750) | `2026-07-10` |
+<details>
+<summary>Show 1 older merged PR</summary>
+
+| Pull Request | Opened |
+| --- | --- |
+| ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
+</details>
+
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 <img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-4-2ea44f?style=flat-square">
 
@@ -98,16 +116,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [feat(core): share file list patterns between glob and grep tools](https://github.com/google-gemini/gemini-cli/pull/6359) | `2025-08-16` |
 | ✅ [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) | `2025-07-24` |
 | ✅ [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) | `2025-07-05` |
-
-### [facebook/astryx](https://github.com/facebook/astryx)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-4-2ea44f?style=flat-square">
-
-| Pull Request | Opened |
-| --- | --- |
-| ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
-| ✅ [ci: read the Node version from .nvmrc and share one setup action](https://github.com/facebook/astryx/pull/3753) | `2026-07-10` |
-| ✅ [chore: drop the dead .npmrc and fix the stale pnpm version in CONTRIBUTING](https://github.com/facebook/astryx/pull/3750) | `2026-07-10` |
-| ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
 
 ### [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
 <img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-3-2ea44f?style=flat-square">
