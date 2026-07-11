@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-60-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-62-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -99,6 +99,16 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [perf(core): implement parallel file processing for 74% performance improvement](https://github.com/google-gemini/gemini-cli/pull/4763) | `2025-07-24` |
 | ✅ [feat: Make file type detection and binary checks asynchronous (#3286)](https://github.com/google-gemini/gemini-cli/pull/3288) | `2025-07-05` |
 
+### [facebook/astryx](https://github.com/facebook/astryx)
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-4-2ea44f?style=flat-square">
+
+| Pull Request | Opened |
+| --- | --- |
+| ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
+| ✅ [ci: read the Node version from .nvmrc and share one setup action](https://github.com/facebook/astryx/pull/3753) | `2026-07-10` |
+| ✅ [chore: drop the dead .npmrc and fix the stale pnpm version in CONTRIBUTING](https://github.com/facebook/astryx/pull/3750) | `2026-07-10` |
+| ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
+
 ### [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
 <img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-3-2ea44f?style=flat-square">
 
@@ -115,14 +125,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | --- | --- |
 | ✅ [feat(cli): add oxlint rule to prefer vite-plus imports](https://github.com/voidzero-dev/vite-plus/pull/1408) | `2026-04-17` |
 | ✅ [feat(cli): add top-level rebuild alias](https://github.com/voidzero-dev/vite-plus/pull/1383) | `2026-04-14` |
-
-### [facebook/astryx](https://github.com/facebook/astryx)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-2-2ea44f?style=flat-square">
-
-| Pull Request | Opened |
-| --- | --- |
-| ✅ [ci: read the Node version from .nvmrc and share one setup action](https://github.com/facebook/astryx/pull/3753) | `2026-07-10` |
-| ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
 
 ### [vercel/next.js](https://github.com/vercel/next.js)
 <img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-1-2ea44f?style=flat-square">
