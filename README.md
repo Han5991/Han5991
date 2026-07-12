@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-73-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-74-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -90,7 +90,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [facebook/astryx](https://github.com/facebook/astryx)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-15-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-16-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
@@ -100,7 +100,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [perf(test): split vitest into ui (jsdom) and node projects](https://github.com/facebook/astryx/pull/3814) | `2026-07-11` |
 | ✅ [chore: migrate the ESLint config to defineConfig](https://github.com/facebook/astryx/pull/3818) | `2026-07-11` |
 <details>
-<summary>Show 10 older merged PRs</summary>
+<summary>Show 11 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
@@ -113,6 +113,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [fix(ci): retry gh-pages push in cleanup-previews to survive deploy races](https://github.com/facebook/astryx/pull/3810) | `2026-07-11` |
 | ✅ [ci: read the Node version from .nvmrc and share one setup action](https://github.com/facebook/astryx/pull/3753) | `2026-07-10` |
 | ✅ [chore: drop the dead .npmrc and fix the stale pnpm version in CONTRIBUTING](https://github.com/facebook/astryx/pull/3750) | `2026-07-10` |
+| ✅ [chore: derive the workspace layout from pnpm-workspace.yaml only](https://github.com/facebook/astryx/pull/3752) | `2026-07-10` |
 | ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
 </details>
 
