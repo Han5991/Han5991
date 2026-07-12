@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-70-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-73-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -90,24 +90,27 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [facebook/astryx](https://github.com/facebook/astryx)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-12-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-15-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [chore(deps): align workspace on vite 8](https://github.com/facebook/astryx/pull/3859) | `2026-07-12` |
+| ✅ [perf(ci): key sandbox next cache by PR to stop cross-basepath invalidation](https://github.com/facebook/astryx/pull/3864) | `2026-07-12` |
 | ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
 | ✅ [perf(test): split vitest into ui (jsdom) and node projects](https://github.com/facebook/astryx/pull/3814) | `2026-07-11` |
 | ✅ [chore: migrate the ESLint config to defineConfig](https://github.com/facebook/astryx/pull/3818) | `2026-07-11` |
-| ✅ [fix(ci): restore executable bits on shell scripts and guard against regressions](https://github.com/facebook/astryx/pull/3809) | `2026-07-11` |
 <details>
-<summary>Show 7 older merged PRs</summary>
+<summary>Show 10 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [fix(ci): restore executable bits on shell scripts and guard against regressions](https://github.com/facebook/astryx/pull/3809) | `2026-07-11` |
 | ✅ [perf(test): make role+name queries O(match) in the date-component suites](https://github.com/facebook/astryx/pull/3816) | `2026-07-11` |
 | ✅ [fix(test): stabilize Markdown parser perf budgets under parallel load](https://github.com/facebook/astryx/pull/3848) | `2026-07-11` |
 | ✅ [fix(deps): align workspace on single vite 7, drop vite override](https://github.com/facebook/astryx/pull/3847) | `2026-07-11` |
 | ✅ [perf(deploy): build in parallel with test, deploy only assembles and pushes](https://github.com/facebook/astryx/pull/3812) | `2026-07-11` |
+| ✅ [perf(ci): build sandbox preview in parallel with storybook](https://github.com/facebook/astryx/pull/3811) | `2026-07-11` |
+| ✅ [fix(ci): retry gh-pages push in cleanup-previews to survive deploy races](https://github.com/facebook/astryx/pull/3810) | `2026-07-11` |
 | ✅ [ci: read the Node version from .nvmrc and share one setup action](https://github.com/facebook/astryx/pull/3753) | `2026-07-10` |
 | ✅ [chore: drop the dead .npmrc and fix the stale pnpm version in CONTRIBUTING](https://github.com/facebook/astryx/pull/3750) | `2026-07-10` |
 | ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
