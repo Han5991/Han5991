@@ -8,7 +8,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'dist/**'
+      - 'scripts/**'
       - 'config/**'
       - '.github/workflows/**'
   pull_request:
@@ -29,19 +29,11 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
-
-      - name: Check if bundle exists
-        run: |
-          if [ ! -f "dist/fetch-contributions.js" ]; then
-            echo "Bundle not found! Please build locally and commit dist/ folder."
-            exit 1
-          fi
-
-      - name: Make script executable
-        run: chmod +x dist/fetch-contributions.js
+        with:
+          node-version-file: '.tool-versions'
 
       - name: Run update contributions
-        run: node dist/fetch-contributions.js
+        run: node scripts/fetch-contributions.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}

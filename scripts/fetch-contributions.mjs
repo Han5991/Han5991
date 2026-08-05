@@ -1,17 +1,39 @@
-import { Octokit } from '@octokit/rest';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN
-});
-
+const GITHUB_API_BASE = 'https://api.github.com';
 const username = process.env.GITHUB_USERNAME || 'Han5991';
 const prStatusCache = new Map();
 const SEARCH_PER_PAGE = Number(process.env.CONTRIB_SEARCH_PER_PAGE || 50);
 const MAX_SEARCH_PAGES = Number(process.env.CONTRIB_MAX_PAGES || 5);
 const VISIBLE_CONTRIBUTIONS_PER_REPO = Number(process.env.CONTRIB_VISIBLE_LIMIT || 5);
 const DEFAULT_MERGED_LOOKBACK_DAYS = 7;
+
+async function githubRequest(pathname, searchParams = {}) {
+  const url = new URL(pathname, GITHUB_API_BASE);
+  for (const [key, value] of Object.entries(searchParams)) {
+    url.searchParams.set(key, String(value));
+  }
+
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+    'User-Agent': `${username}-profile-updater`
+  };
+
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
+
+  const response = await fetch(url, { headers });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`GitHub API ${response.status} ${response.statusText} on ${url.pathname}: ${body.slice(0, 200)}`);
+  }
+
+  return response.json();
+}
 
 function getRepoParts(repoFullName) {
   const [owner, repo] = repoFullName.split('/');
@@ -29,11 +51,9 @@ async function fetchPullRequestStatus(owner, repo, pullNumber, fallbackState = '
   }
 
   try {
-    const { data } = await octokit.rest.pulls.get({
-      owner,
-      repo,
-      pull_number: pullNumber
-    });
+    const data = await githubRequest(
+      `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/pulls/${pullNumber}`
+    );
 
     const status = {
       state: data.state,
@@ -181,15 +201,15 @@ async function fetchContributions() {
     
     while (page <= MAX_SEARCH_PAGES) {
       try {
-        const searchResults = await octokit.rest.search.issuesAndPullRequests({
+        const searchResults = await githubRequest('/search/issues', {
           q: searchQuery,
           sort: 'updated',
           order: 'desc',
           per_page: SEARCH_PER_PAGE,
           page
         });
-        
-        const items = searchResults.data.items || [];
+
+        const items = searchResults.items || [];
         if (!items.length) {
           break;
         }

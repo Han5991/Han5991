@@ -5,9 +5,3 @@ yarn-debug.log*
 yarn-error.log*
 .npm
 .env
-
-# Keep built files
-!dist/
-
-# Keep Husky hooks
-!.husky/
