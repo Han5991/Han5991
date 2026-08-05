@@ -6,6 +6,13 @@
   "scripts": {
     "update-contributions": "node scripts/fetch-contributions.mjs"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.18.1",
+      "onFail": "warn"
+    }
+  },
   "keywords": [
     "github",
     "profile",

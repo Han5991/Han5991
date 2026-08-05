@@ -21,8 +21,11 @@ optionally `GITHUB_USERNAME`.
   instead of an SDK, so CI needs no `npm install` and no bundle — the code that runs in
   CI is the code in the repo. Adding a dependency brings back an install step or a
   committed bundle, so weigh it against that.
-- **`.tool-versions` is the single source for the Node version**, read by asdf/mise
-  locally and by `actions/setup-node`'s `node-version-file` in CI.
+- **The Node version lives in `package.json` under `devEngines.runtime`**, which CI reads
+  via `actions/setup-node`'s `node-version-file`. Local version managers like asdf do not
+  read that field, so a local run may sit on a different Node than CI — deliberate, since
+  this is run in CI almost exclusively. `npm` warns about the mismatch (`onFail: "warn"`)
+  without blocking anything.
 
 ## Layout
 
