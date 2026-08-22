@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-76-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-78-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -58,20 +58,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-20-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-21-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [test: deflake test-net-listen-ipv6only](https://github.com/nodejs/node/pull/64173) | `2026-06-27` |
 | ✅ [test_runner: add timestamp to JUnit reporter testsuites](https://github.com/nodejs/node/pull/64029) | `2026-06-20` |
 | ✅ [test_runner: avoid recompiling coverage globs for every file](https://github.com/nodejs/node/pull/63675) | `2026-05-31` |
 | ✅ [test_runner: support coverage with isolation:'none' via run() API](https://github.com/nodejs/node/pull/63079) | `2026-05-02` |
 | ✅ [test_runner: align MockTimers timeout API](https://github.com/nodejs/node/pull/62820) | `2026-04-19` |
-| ✅ [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) | `2026-03-21` |
 <details>
-<summary>Show 15 older merged PRs</summary>
+<summary>Show 16 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) | `2026-03-21` |
 | ✅ [stream: fix writev unhandled rejection in fromWeb](https://github.com/nodejs/node/pull/62297) | `2026-03-17` |
 | ✅ [util: allow color aliases in styleText](https://github.com/nodejs/node/pull/62180) | `2026-03-10` |
 | ✅ [test_runner: add exports option to mock.module](https://github.com/nodejs/node/pull/61727) | `2026-02-08` |
@@ -90,20 +91,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [facebook/astryx](https://github.com/facebook/astryx)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-18-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-19-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [chore(github): add a Test or CI Infrastructure issue template](https://github.com/facebook/astryx/pull/4340) | `2026-07-26` |
+| ✅ [chore(deps): prune stale pnpm overrides, move workspace pins to the catalog](https://github.com/facebook/astryx/pull/4101) | `2026-07-20` |
 | ✅ [chore(deps): align workspace on vite 8](https://github.com/facebook/astryx/pull/3859) | `2026-07-12` |
 | ✅ [perf(ci): key sandbox next cache by PR to stop cross-basepath invalidation](https://github.com/facebook/astryx/pull/3864) | `2026-07-12` |
 | ✅ [fix(ci): restore merge base for three-dot diffs broken by shallow clones](https://github.com/facebook/astryx/pull/3865) | `2026-07-12` |
-| ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
 <details>
-<summary>Show 13 older merged PRs</summary>
+<summary>Show 14 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
 | ✅ [perf(test): split vitest into ui (jsdom) and node projects](https://github.com/facebook/astryx/pull/3814) | `2026-07-11` |
 | ✅ [chore: migrate the ESLint config to defineConfig](https://github.com/facebook/astryx/pull/3818) | `2026-07-11` |
 | ✅ [fix(ci): restore executable bits on shell scripts and guard against regressions](https://github.com/facebook/astryx/pull/3809) | `2026-07-11` |
