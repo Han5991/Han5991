@@ -1,39 +1,12 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
-const GITHUB_API_BASE = 'https://api.github.com';
-const username = process.env.GITHUB_USERNAME || 'Han5991';
+import { configPath, githubRequest, isBlacklisted, loadBlacklist, username } from './lib.mjs';
+
 const prStatusCache = new Map();
 const SEARCH_PER_PAGE = Number(process.env.CONTRIB_SEARCH_PER_PAGE || 50);
 const MAX_SEARCH_PAGES = Number(process.env.CONTRIB_MAX_PAGES || 5);
 const VISIBLE_CONTRIBUTIONS_PER_REPO = Number(process.env.CONTRIB_VISIBLE_LIMIT || 5);
 const DEFAULT_MERGED_LOOKBACK_DAYS = 7;
-
-async function githubRequest(pathname, searchParams = {}) {
-  const url = new URL(pathname, GITHUB_API_BASE);
-  for (const [key, value] of Object.entries(searchParams)) {
-    url.searchParams.set(key, String(value));
-  }
-
-  const headers = {
-    Accept: 'application/vnd.github+json',
-    'X-GitHub-Api-Version': '2022-11-28',
-    'User-Agent': `${username}-profile-updater`
-  };
-
-  if (process.env.GITHUB_TOKEN) {
-    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-  }
-
-  const response = await fetch(url, { headers });
-
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`GitHub API ${response.status} ${response.statusText} on ${url.pathname}: ${body.slice(0, 200)}`);
-  }
-
-  return response.json();
-}
 
 function getRepoParts(repoFullName) {
   const [owner, repo] = repoFullName.split('/');
@@ -77,25 +50,36 @@ async function fetchPullRequestStatus(owner, repo, pullNumber, fallbackState = '
   }
 }
 
-// 블랙리스트 로드
-function loadBlacklist() {
+// 수동 등록 기여 로드
+// GitHub이 merged로 표시하지 않는 랜딩 PR을 위한 화이트리스트.
+// nodejs의 `git node land`는 커밋을 main에 리베이스해서 올리고 PR은 닫기만 하므로
+// head SHA가 base 브랜치에 나타나지 않아 API가 merged=false를 돌려준다.
+function loadManualContributions() {
   try {
-    const blacklistPath = path.join(process.cwd(), 'config', 'blacklist.json');
-    const blacklistData = fs.readFileSync(blacklistPath, 'utf8');
-    const blacklist = JSON.parse(blacklistData);
+    const manualPath = configPath('manual-contributions.json');
+    const manualData = fs.readFileSync(manualPath, 'utf8');
+    const { contributions = [] } = JSON.parse(manualData);
 
-    console.log(`Loaded blacklist: ${blacklist.organizations?.length || 0} orgs, ${blacklist.repositories?.length || 0} repos`);
-    return blacklist;
+    console.log(`Loaded ${contributions.length} manual contributions`);
+    return contributions.map(contrib => ({
+      repository: contrib.repository,
+      type: 'Pull Request',
+      title: contrib.title,
+      url: contrib.url,
+      date: contrib.date,
+      state: 'closed',
+      merged: true
+    }));
   } catch (error) {
-    console.log('No blacklist found or error loading, using empty blacklist');
-    return { organizations: [], repositories: [] };
+    console.log('No manual contributions found or error loading, using empty list');
+    return [];
   }
 }
 
 // 마지막 업데이트 시간 로드
 function loadLastUpdate() {
   try {
-    const lastUpdatePath = path.join(process.cwd(), 'config', 'last-update.json');
+    const lastUpdatePath = configPath('last-update.json');
     const lastUpdateData = fs.readFileSync(lastUpdatePath, 'utf8');
     const { lastUpdate } = JSON.parse(lastUpdateData);
     
@@ -149,7 +133,7 @@ function getMergedLookbackDays() {
 // 마지막 업데이트 시간 저장
 function saveLastUpdate() {
   try {
-    const lastUpdatePath = path.join(process.cwd(), 'config', 'last-update.json');
+    const lastUpdatePath = configPath('last-update.json');
     const lastUpdateData = {
       lastUpdate: new Date().toISOString(),
       description: "Last update timestamp for incremental contribution fetching"
@@ -160,23 +144,6 @@ function saveLastUpdate() {
   } catch (error) {
     console.error('Error saving last update timestamp:', error);
   }
-}
-
-// 기여가 블랙리스트에 있는지 확인
-function isBlacklisted(repoFullName, blacklist) {
-  const [owner, repo] = repoFullName.split('/');
-  
-  // 조직 블랙리스트 확인
-  if (blacklist.organizations && blacklist.organizations.includes(owner)) {
-    return true;
-  }
-  
-  // 특정 레포지토리 블랙리스트 확인
-  if (blacklist.repositories && blacklist.repositories.includes(repoFullName)) {
-    return true;
-  }
-  
-  return false;
 }
 
 function escapeTableCell(value) {
@@ -397,12 +364,30 @@ async function updateReadme(newContributions) {
     for (const newContrib of mergedNewContributions) {
       const key = `${newContrib.repository}-${newContrib.url}`;
       if (!existingKeys.has(key)) {
+        existingKeys.add(key);
         allContributions.push(newContrib);
         console.log(`Added new contribution: ${newContrib.repository} - ${newContrib.title}`);
       }
     }
-    
-    console.log(`Total merged contributions: ${allContributions.length} (${mergedExistingContributions.length} existing + ${mergedNewContributions.length} new)`);
+
+    const blacklist = loadBlacklist();
+    let manualCount = 0;
+    for (const manualContrib of loadManualContributions()) {
+      if (isBlacklisted(manualContrib.repository, blacklist)) {
+        console.log(`Skipping blacklisted manual contribution: ${manualContrib.repository}`);
+        continue;
+      }
+
+      const key = `${manualContrib.repository}-${manualContrib.url}`;
+      if (!existingKeys.has(key)) {
+        existingKeys.add(key);
+        allContributions.push(manualContrib);
+        manualCount += 1;
+        console.log(`Added manual contribution: ${manualContrib.repository} - ${manualContrib.title}`);
+      }
+    }
+
+    console.log(`Total merged contributions: ${allContributions.length} (${mergedExistingContributions.length} existing + ${mergedNewContributions.length} new + ${manualCount} manual)`);
     
     // 중복 제거 (URL 기준)
     const uniqueContributions = [];
@@ -437,7 +422,7 @@ async function updateReadme(newContributions) {
     // 외부 소비용(예: blog about 통계) 머신 리더블 요약.
     // README 배지를 정규식으로 긁지 않고 .mergedPRs 만 읽으면 되도록 한다.
     try {
-      const summaryPath = path.join(process.cwd(), 'config', 'summary.json');
+      const summaryPath = configPath('summary.json');
       const summary = {
         mergedPRs: totalContributions,
         repositories: totalRepos,

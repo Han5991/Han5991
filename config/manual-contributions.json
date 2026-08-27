@@ -1,0 +1,26 @@
+{
+  "contributions": [
+    {
+      "repository": "nodejs/node",
+      "title": "doc: add test reporter event lifecycle diagram",
+      "url": "https://github.com/nodejs/node/pull/63780",
+      "date": "2026-06-07",
+      "note": "landed as 29c517f5d44"
+    },
+    {
+      "repository": "nodejs/node",
+      "title": "lib: fix TypeScript support check in jitless mode",
+      "url": "https://github.com/nodejs/node/pull/61382",
+      "date": "2026-01-14",
+      "note": "landed as 9bcfbeb2363"
+    },
+    {
+      "repository": "nodejs/node",
+      "title": "test: add file attribute to JUnit reporter testcase elements",
+      "url": "https://github.com/nodejs/node/pull/59432",
+      "date": "2025-08-10",
+      "note": "landed as f0aa073907f"
+    }
+  ],
+  "description": "PRs that landed but GitHub does not report as merged, e.g. nodejs' `git node land` rebases commits onto main and closes the PR, so the head SHA never appears in the base branch. Verify with `PR-URL: <url>` in the landing commit before adding an entry."
+}

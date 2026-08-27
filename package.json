@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Automated GitHub profile with open source contributions",
   "scripts": {
-    "update-contributions": "node scripts/fetch-contributions.mjs"
+    "update-contributions": "node scripts/fetch-contributions.mjs",
+    "find-landed-prs": "node scripts/find-landed-prs.mjs"
   },
   "devEngines": {
     "runtime": {

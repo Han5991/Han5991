@@ -1,0 +1,44 @@
+name: Find Landed PRs
+
+on:
+  schedule:
+    # 최근 14일에 닫힌 PR만 보므로 주 1회 실행이면 창이 7일씩 겹친다.
+    - cron: '0 10 * * 1' # 매주 월요일
+      timezone: Asia/Seoul
+  workflow_dispatch: # 수동 실행 가능
+
+permissions:
+  contents: write
+
+jobs:
+  find-landed-prs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: 'package.json'
+
+      - name: Find landed PRs
+        run: node scripts/find-landed-prs.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+
+      - name: Run update contributions
+        run: node scripts/fetch-contributions.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+
+      - name: Commit landed PRs
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add config/manual-contributions.json README.md config/last-update.json config/summary.json
+          git diff --staged --quiet || git commit -m "🤖 Auto-update: Landed pull requests"
+          git push

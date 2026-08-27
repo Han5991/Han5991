@@ -6,7 +6,8 @@ fetched through the GitHub REST API.
 ## Commands
 
 ```bash
-npm run update-contributions   # same command CI runs
+npm run update-contributions   # same command CI runs (daily)
+npm run find-landed-prs        # same command CI runs (weekly)
 ```
 
 **This rewrites `README.md` and `config/*.json` in place.** For a smoke test, copy
@@ -29,9 +30,29 @@ optionally `GITHUB_USERNAME`.
 
 ## Layout
 
-`scripts/fetch-contributions.mjs` is the whole program: it queries the Search API for
+`scripts/fetch-contributions.mjs` is the main program: it queries the Search API for
 merged PRs since `config/last-update.json`, re-checks previously open PRs, merges with
 contributions parsed back out of the existing README, and regenerates the section.
+
+`scripts/find-landed-prs.mjs` covers what the Search API cannot see. Projects that land
+PRs by rebasing commits onto the base branch — nodejs' `git node land` — close the PR
+without GitHub ever marking it merged, because the head SHA never appears in the base
+branch. So `is:merged` can never return them, no matter how often it runs. The script
+looks at PRs **closed** in the last 14 days, confirms a landing commit carrying the exact
+`PR-URL: <url>` trailer, and appends what it finds to `config/manual-contributions.json`,
+which `fetch-contributions.mjs` folds in as merged.
+
+Both windows key off the closed/merged date, never the date the PR was opened — a PR
+opened months ago and landed today still falls inside them. The opened date is only what
+the README table displays.
+
+Running weekly against a 14-day window leaves consecutive runs overlapping by 7 days,
+which matters because commit search may not have indexed a landing commit yet when a PR
+closes; the next run retries it. `LANDED_SINCE` widens the window for a backfill, and
+commit search is limited to 30 req/min, so candidates are spaced out.
+
+`scripts/lib.mjs` holds what both share: `githubRequest`, the blacklist helpers, and
+`findLandingCommit`.
 
 `config/blacklist.json` hides orgs/repos (company and private work) from the public
 profile. `config/summary.json` is written for external consumers so they can read
