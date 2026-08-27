@@ -29,13 +29,27 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
 
+      # 랜딩된 PR이 없으면 여기서 끝낸다. fetch-contributions.mjs는 실행할 때마다
+      # last-update.json 타임스탬프를 갱신하므로, 그냥 두면 매주 내용 없는 커밋이 쌓인다.
+      - name: Check for new landed PRs
+        id: landed
+        run: |
+          if git diff --quiet config/manual-contributions.json; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "No new landed PRs, leaving the README alone"
+          else
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run update contributions
+        if: steps.landed.outputs.found == 'true'
         run: node scripts/fetch-contributions.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
 
       - name: Commit landed PRs
+        if: steps.landed.outputs.found == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
