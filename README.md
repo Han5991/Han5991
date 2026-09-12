@@ -12,8 +12,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-80-2ea44f?style=for-the-badge&logo=github">
-<img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-81-2ea44f?style=for-the-badge&logo=github">
+<img alt="Repositories" src="https://img.shields.io/badge/Repositories-10-0969da?style=for-the-badge&logo=github">
 
 </div>
 
@@ -170,6 +170,13 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) | `2026-01-29` |
+
+### [callme-waffle/gemspot](https://github.com/callme-waffle/gemspot)
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-1-2ea44f?style=flat-square">
+
+| Pull Request | Opened |
+| --- | --- |
+| ✅ [refactor(panda): 손으로 짠 토큰 프리셋을 공식 preset-panda로 바꾼다](https://github.com/callme-waffle/gemspot/pull/71) | `2026-09-12` |
 
 ---
 
