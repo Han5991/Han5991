@@ -12,8 +12,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-101-2ea44f?style=for-the-badge&logo=github">
-<img alt="Repositories" src="https://img.shields.io/badge/Repositories-11-0969da?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-80-2ea44f?style=for-the-badge&logo=github">
+<img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
 
@@ -123,38 +123,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | ✅ [refactor: use node: protocol prefix for Node.js builtin imports](https://github.com/facebook/astryx/pull/3737) | `2026-07-09` |
 </details>
 
-### [Infinity-Stones/gemspot](https://github.com/Infinity-Stones/gemspot)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-20-2ea44f?style=flat-square">
-
-| Pull Request | Opened |
-| --- | --- |
-| ✅ [refactor(upload): 멀티 업로드를 지원하지 않기로 하고 장수 축을 걷어낸다](https://github.com/Infinity-Stones/gemspot/pull/137) | `2026-09-12` |
-| ✅ [feat(spot): 카테고리 체계를 확정하고 스크린샷 결과에서 고르게 한다](https://github.com/Infinity-Stones/gemspot/pull/153) | `2026-09-12` |
-| ✅ [feat(upload): 고른 후보를 스팟으로 저장한다](https://github.com/Infinity-Stones/gemspot/pull/143) | `2026-09-12` |
-| ✅ [chore(env): 기본 Gemini 모델을 3.8 flash로 올린다](https://github.com/Infinity-Stones/gemspot/pull/146) | `2026-09-12` |
-| ✅ [feat(upload): 업로드 화면과 라우트를 만든다](https://github.com/Infinity-Stones/gemspot/pull/84) | `2026-09-12` |
-<details>
-<summary>Show 15 older merged PRs</summary>
-
-| Pull Request | Opened |
-| --- | --- |
-| ✅ [feat/upload multi preview](https://github.com/Infinity-Stones/gemspot/pull/85) | `2026-09-12` |
-| ✅ [fix(upload): 화면 문구를 한 장 제한과 맞춘다](https://github.com/Infinity-Stones/gemspot/pull/120) | `2026-09-12` |
-| ✅ [feat(nav): 진입이 확정된 하위 화면에 돌아가는 길을 만든다](https://github.com/Infinity-Stones/gemspot/pull/129) | `2026-09-12` |
-| ✅ [feat(shared): 스팟 계약을 shared에 둔다](https://github.com/Infinity-Stones/gemspot/pull/76) | `2026-09-12` |
-| ✅ [업로드 추출이 실패하면 다시 시도와 직접 입력을 내민다](https://github.com/Infinity-Stones/gemspot/pull/134) | `2026-09-12` |
-| ✅ [feat/upload guard](https://github.com/Infinity-Stones/gemspot/pull/86) | `2026-09-12` |
-| ✅ [chore(lint): 도메인 셋을 경계에 등록한다](https://github.com/Infinity-Stones/gemspot/pull/77) | `2026-09-12` |
-| ✅ [chore: 스캐폴드가 남긴 example 도메인을 걷어낸다](https://github.com/Infinity-Stones/gemspot/pull/75) | `2026-09-12` |
-| ✅ [feat(env): API 키를 계약에 올리고 버셀에 등록된 이름으로 맞춘다](https://github.com/Infinity-Stones/gemspot/pull/78) | `2026-09-12` |
-| ✅ [ci: PR이 ready가 되면 auto-merge를 대신 켠다](https://github.com/Infinity-Stones/gemspot/pull/116) | `2026-09-12` |
-| ✅ [feat(upload): 올린 이미지에서 후보를 만들어 결과 화면에 넘긴다](https://github.com/Infinity-Stones/gemspot/pull/112) | `2026-09-12` |
-| ✅ [fix: 락파일에서 pnpm 11 잔재(@pnpm/exe)를 걷어낸다](https://github.com/Infinity-Stones/gemspot/pull/107) | `2026-09-12` |
-| ✅ [feat(upload): 업로드를 한 장으로 제한한다](https://github.com/Infinity-Stones/gemspot/pull/106) | `2026-09-12` |
-| ✅ [feat(platform): 이미지에서 가게를 읽는 VLM 어댑터를 붙인다](https://github.com/Infinity-Stones/gemspot/pull/105) | `2026-09-12` |
-| ✅ [feat(extraction): VLM이 읽어낸 주소를 도로명으로 검증한다](https://github.com/Infinity-Stones/gemspot/pull/104) | `2026-09-12` |
-</details>
-
 ### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 <img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-4-2ea44f?style=flat-square">
 
@@ -202,13 +170,6 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) | `2026-01-29` |
-
-### [callme-waffle/gemspot](https://github.com/callme-waffle/gemspot)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-1-2ea44f?style=flat-square">
-
-| Pull Request | Opened |
-| --- | --- |
-| ✅ [refactor(panda): 손으로 짠 토큰 프리셋을 공식 preset-panda로 바꾼다](https://github.com/callme-waffle/gemspot/pull/71) | `2026-09-12` |
 
 ---
 
