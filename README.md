@@ -12,7 +12,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-80-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-81-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -92,20 +92,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [facebook/astryx](https://github.com/facebook/astryx)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-20-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-21-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [perf(ci): give the heavier test lane the larger runner](https://github.com/facebook/astryx/pull/6080) | `2026-09-06` |
+| ✅ [chore(deps): make node_modules strict, declare what each package imports](https://github.com/facebook/astryx/pull/5327) | `2026-08-22` |
 | ✅ [chore(github): add a Test or CI Infrastructure issue template](https://github.com/facebook/astryx/pull/4340) | `2026-07-26` |
 | ✅ [chore(deps): prune stale pnpm overrides, move workspace pins to the catalog](https://github.com/facebook/astryx/pull/4101) | `2026-07-20` |
 | ✅ [chore(deps): align workspace on vite 8](https://github.com/facebook/astryx/pull/3859) | `2026-07-12` |
-| ✅ [perf(ci): key sandbox next cache by PR to stop cross-basepath invalidation](https://github.com/facebook/astryx/pull/3864) | `2026-07-12` |
 <details>
-<summary>Show 15 older merged PRs</summary>
+<summary>Show 16 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [perf(ci): key sandbox next cache by PR to stop cross-basepath invalidation](https://github.com/facebook/astryx/pull/3864) | `2026-07-12` |
 | ✅ [fix(ci): restore merge base for three-dot diffs broken by shallow clones](https://github.com/facebook/astryx/pull/3865) | `2026-07-12` |
 | ✅ [chore: remove duplicate devEngines.packageManager field](https://github.com/facebook/astryx/pull/3807) | `2026-07-11` |
 | ✅ [perf(test): split vitest into ui (jsdom) and node projects](https://github.com/facebook/astryx/pull/3814) | `2026-07-11` |
