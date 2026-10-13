@@ -12,8 +12,8 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-82-2ea44f?style=for-the-badge&logo=github">
-<img alt="Repositories" src="https://img.shields.io/badge/Repositories-9-0969da?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-83-2ea44f?style=for-the-badge&logo=github">
+<img alt="Repositories" src="https://img.shields.io/badge/Repositories-10-0969da?style=for-the-badge&logo=github">
 
 </div>
 
@@ -172,6 +172,13 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 | Pull Request | Opened |
 | --- | --- |
 | ✅ [feat: add expectFailure enhancements proposal](https://github.com/nodejs/test-runner/pull/10) | `2026-01-29` |
+
+### [chakra-ui/panda](https://github.com/chakra-ui/panda)
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-1-2ea44f?style=flat-square">
+
+| Pull Request | Opened |
+| --- | --- |
+| ✅ [fix(eslint-plugin): make rules and recommended() assignable to ESLint's types](https://github.com/chakra-ui/panda/pull/3981) | `2026-10-11` |
 
 ---
 
