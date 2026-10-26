@@ -6,7 +6,19 @@
 
 Welcome to my GitHub profile! I'm passionate about contributing to open source projects and building meaningful software.
 
+📝 **Blog:** [blog.sangwook.dev](https://blog.sangwook.dev/)
+
 </div>
+
+## 📝 Latest Posts
+
+- [성능 개선은 어디서 재야 보일까: 로컬에선 그대로, CI에선 25초](https://blog.sangwook.dev/posts/vitest-project-split/)
+- [캐시가 hit인데 매번 콜드 빌드였습니다 — GitHub Actions Next.js 캐시 키가 죽어 있던 이유](https://blog.sangwook.dev/posts/cache-hit-cold-build/)
+- [매일 쓰던 getByRole 때문에 테스트가 26배 느렸습니다 — RTL·jsdom 성능 분석](https://blog.sangwook.dev/posts/getbyrole-performance/)
+- [TypeScript 6 업그레이드인 줄 알았는데, 문제는 "설정"이었습니다](https://blog.sangwook.dev/posts/typescript-6-migration-troubleshooting/)
+- [id?: string을 버려라. 상태가 다르면 타입도 달라야 한다.](https://blog.sangwook.dev/posts/typescript-domain-modeling-without-optional/)
+
+[모든 글 보기 →](https://blog.sangwook.dev/posts/)
 
 ## 🚀 Open Source Contributions
 
