@@ -24,7 +24,7 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 
 <div align="center">
 
-<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-83-2ea44f?style=for-the-badge&logo=github">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/Merged%20PRs-84-2ea44f?style=for-the-badge&logo=github">
 <img alt="Repositories" src="https://img.shields.io/badge/Repositories-10-0969da?style=for-the-badge&logo=github">
 
 </div>
@@ -70,20 +70,21 @@ Welcome to my GitHub profile! I'm passionate about contributing to open source p
 </details>
 
 ### [nodejs/node](https://github.com/nodejs/node)
-<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-22-2ea44f?style=flat-square">
+<img alt="Merged pull requests" src="https://img.shields.io/badge/merged%20PRs-23-2ea44f?style=flat-square">
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [test_runner: add tags and workerId to SuiteContext](https://github.com/nodejs/node/pull/67312) | `2026-11-07` |
 | ✅ [test: deflake test-net-listen-ipv6only](https://github.com/nodejs/node/pull/64173) | `2026-06-27` |
 | ✅ [test_runner: add timestamp to JUnit reporter testsuites](https://github.com/nodejs/node/pull/64029) | `2026-06-20` |
 | ✅ [doc: add test reporter event lifecycle diagram](https://github.com/nodejs/node/pull/63780) | `2026-06-07` |
 | ✅ [test_runner: avoid recompiling coverage globs for every file](https://github.com/nodejs/node/pull/63675) | `2026-05-31` |
-| ✅ [test_runner: support coverage with isolation:'none' via run() API](https://github.com/nodejs/node/pull/63079) | `2026-05-02` |
 <details>
-<summary>Show 17 older merged PRs</summary>
+<summary>Show 18 older merged PRs</summary>
 
 | Pull Request | Opened |
 | --- | --- |
+| ✅ [test_runner: support coverage with isolation:'none' via run() API](https://github.com/nodejs/node/pull/63079) | `2026-05-02` |
 | ✅ [test_runner: align MockTimers timeout API](https://github.com/nodejs/node/pull/62820) | `2026-04-19` |
 | ✅ [lib: defer AbortSignal.any() following](https://github.com/nodejs/node/pull/62367) | `2026-03-21` |
 | ✅ [stream: fix writev unhandled rejection in fromWeb](https://github.com/nodejs/node/pull/62297) | `2026-03-17` |
